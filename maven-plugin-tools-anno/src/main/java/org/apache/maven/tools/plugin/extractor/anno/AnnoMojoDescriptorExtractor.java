@@ -72,9 +72,10 @@ public class AnnoMojoDescriptorExtractor
             URL url = source.getURL();
             String path;
             try {
-                path = new File(url.toString()).getCanonicalPath();
+                path = url.getPath();
             } catch (Exception e) {
-                throw new InvalidPluginDescriptorException("Failed to get source files.", e);
+                throw new InvalidPluginDescriptorException(
+                        "Failed to get source files from " + url, e);
             }
             sourcePathElements.add(path);
         }
@@ -101,9 +102,10 @@ public class AnnoMojoDescriptorExtractor
         for (URL url : urls) {
             String path;
             try {
-                path = new File(url.toString()).getCanonicalPath();
+                path = url.getPath();
             } catch (Exception e) {
-                throw new InvalidPluginDescriptorException("Failed to get classpath files.", e);
+                throw new InvalidPluginDescriptorException(
+                        "Failed to get classpath files from " + url, e);
             }
             cp.append(path);
             cp.append(File.pathSeparator);
