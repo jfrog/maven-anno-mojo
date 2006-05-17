@@ -3,23 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
           http://maven.apache.org/maven-v4_0_0.xsd">
-    <parent>
-        <artifactId>maven-plugin-tools</artifactId>
-        <groupId>org.apache.maven</groupId>
-        <version>2.0.4</version>
+     <parent>
+         <groupId>org.apache.maven</groupId>
+         <artifactId>mvn-anno-mojo</artifactId>
+         <version>1.0-SNAPSHOT</version>
     </parent>
-    <repositories>
-        <repository>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.maven</groupId>
     <artifactId>maven-plugin-tools-anno-api</artifactId>
     <name>Maven Plugin Tools Annotation APIs</name>
-    <version>1.0-SNAPSHOT</version>
+    <version>${project.parent.version}</version>
     <packaging>jar</packaging>
     <dependencies>
         <!--<dependency>
