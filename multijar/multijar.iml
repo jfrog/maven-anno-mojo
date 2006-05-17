@@ -69,8 +69,8 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="maven-plugin-tools-anno-api" />
-    <orderEntry type="module" module-name="maven" />
+    <orderEntry type="module" module-name="maven-plugin-tools-anno-api" exported="" />
+    <orderEntry type="module" module-name="maven" exported="" />
     <orderEntryProperties />
   </component>
 </module>
