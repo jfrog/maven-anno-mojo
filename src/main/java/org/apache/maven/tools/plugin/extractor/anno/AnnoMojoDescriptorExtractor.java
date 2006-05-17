@@ -40,8 +40,22 @@ public class AnnoMojoDescriptorExtractor
 
     protected PlexusContainer container;
 
+    private MavenHelper helper;
+
     public void contextualize(Context context) throws ContextException {
         container = (PlexusContainer) context.get(PlexusConstants.PLEXUS_KEY);
+        //Decide which helper to use, depending on the Maven version
+        try {
+            try {
+                Thread.currentThread().getContextClassLoader().loadClass(
+                        "org.apache.maven.MavenTools");
+                helper = new Maven21Helper(container);
+            } catch (ClassNotFoundException e) {
+                helper = new Maven20Helper(container);
+            }
+        } catch (ComponentLookupException e) {
+            throw new ContextException("Failed to configure the extractor Maven helper.", e);
+        }
     }
 
     @SuppressWarnings({"unchecked"})
@@ -58,9 +72,10 @@ public class AnnoMojoDescriptorExtractor
             URL url = source.getURL();
             String path;
             try {
-                path = new File(url.toURI()).getCanonicalPath();
+                path = url.getPath();
             } catch (Exception e) {
-                throw new InvalidPluginDescriptorException("Failed to get source files.", e);
+                throw new InvalidPluginDescriptorException(
+                        "Failed to get source files from " + url, e);
             }
             sourcePathElements.add(path);
         }
@@ -87,9 +102,10 @@ public class AnnoMojoDescriptorExtractor
         for (URL url : urls) {
             String path;
             try {
-                path = new File(url.toURI()).getCanonicalPath();
+                path = url.getPath();
             } catch (Exception e) {
-                throw new InvalidPluginDescriptorException("Failed to get classpath files.", e);
+                throw new InvalidPluginDescriptorException(
+                        "Failed to get classpath files from " + url, e);
             }
             cp.append(path);
             cp.append(File.pathSeparator);
@@ -115,15 +131,13 @@ public class AnnoMojoDescriptorExtractor
             throw new InvalidPluginDescriptorException(
                     "Failed to get the ArtifactResolver.", e);
         }
-        ArtifactRepository localRepository = null;
-        /*try {
-            MavenTools tools = (MavenTools) container.lookup(MavenTools.ROLE);
-            String localRepositoryPath = tools.getLocalRepositoryPath();
-            localRepository = tools.createLocalRepository(new File(localRepositoryPath));
+        ArtifactRepository localRepository;
+        try {
+            localRepository = helper.getLocalRepository();
         } catch (Exception e) {
             throw new InvalidPluginDescriptorException(
                     "Failed to get the local repository.", e);
-        }*/
+        }
         DefaultArtifactFactory artifactFactory;
         try {
             artifactFactory = (DefaultArtifactFactory) container.lookup(ArtifactFactory.ROLE);

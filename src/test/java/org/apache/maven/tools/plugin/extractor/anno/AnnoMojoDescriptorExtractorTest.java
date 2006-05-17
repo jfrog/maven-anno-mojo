@@ -25,7 +25,7 @@ public class AnnoMojoDescriptorExtractorTest extends TestCase {
         MavenProject project = new MavenProject(model);
 
         project.setFile(new File(dir, "pom.xml"));
-        project.addCompileSourceRoot(new File(dir, "source").getPath());
+        project.addCompileSourceRoot(new File(dir, "source").getCanonicalPath());
 
         PluginDescriptor pluginDescriptor = new PluginDescriptor();
         pluginDescriptor.setGoalPrefix("test");
