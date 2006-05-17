@@ -7,7 +7,6 @@
     <output-test url="file://C:/clients/acsp/m2/multi-compile/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test-/java" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -23,88 +22,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-plugin-api/2.1-SNAPSHOT/maven-plugin-api-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/maven-plugin-api/src/main/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-artifact/2.1-SNAPSHOT/maven-artifact-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/maven-artifact/src/main/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-project/2.1-SNAPSHOT/maven-project-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/maven-project/src/main/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://C:/m2repo/ant/ant/1.6.5/ant-1.6.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
           <root url="jar://C:/m2repo/ant/ant/1.6.5/ant-1.6.5-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/bootstrap/bootstrap-mini/2.1-SNAPSHOT/bootstrap-mini-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/bootstrap/bootstrap-mini/src/main/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-model/2.1-SNAPSHOT/maven-model-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/maven-model/target/generated-sources/modello" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-core/2.1-SNAPSHOT/maven-core-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/maven-core/src/main/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-plugin-descriptor/2.1-SNAPSHOT/maven-plugin-descriptor-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/maven-plugin-descriptor/src/main/java" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -125,39 +47,6 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://C:/m2repo/org/apache/maven/plugins/maven-compiler-plugin/2.0.1/maven-compiler-plugin-2.0.1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/plugins/maven-plugin-plugin/2.1/maven-plugin-plugin-2.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://C:/TEMP/maven-plugin-plugin-2.1/src/main/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-plugin-tools-api/2.1-SNAPSHOT/maven-plugin-tools-api-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/maven-plugin-tools/maven-plugin-tools-api/src/main/java" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-plugin-tools-java/2.1-SNAPSHOT/maven-plugin-tools-java-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$JAVA_DIR$/maven2/maven-plugin-tools/maven-plugin-tools-java/src/main/java" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -185,15 +74,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$M2_HOME$/lib/maven-error-diagnostics-2.1-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$M2_HOME$/lib/plexus-interactivity-api-1.0-alpha-4.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -209,6 +89,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="maven" />
     <orderEntryProperties />
   </component>
 </module>

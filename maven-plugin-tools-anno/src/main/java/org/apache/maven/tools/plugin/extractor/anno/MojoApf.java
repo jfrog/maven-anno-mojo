@@ -320,7 +320,7 @@ class MojoApf implements AnnotationProcessorFactory {
                         pd.setName(propertyName);
                     }
                     pd.setRequired(parameter.required());
-                    pd.setEditable(parameter.readonly());
+                    pd.setEditable(!parameter.readonly());
                     String deprecated = parameter.deprecated();
                     if (!StringUtils.isEmpty(deprecated)) {
                         pd.setDeprecated(deprecated);
