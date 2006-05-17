@@ -7,6 +7,7 @@
     <output-test url="file://C:/clients/acsp/m2/multi-compile/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -30,7 +31,16 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$M2_HOME$/core/boot/classworlds-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://C:/m2repo/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.jar!/" />
@@ -53,43 +63,14 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$JAVA_DIR$/jdk1.5.0/lib/tools.jar!/" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$JAVA_DIR$/jdk1.5.0/jdk-1_5_0-doc.zip!/docs/api" />
-          <root url="jar://$JAVA_DIR$/jdk1.5.0/jdk-1_5_0-doc.zip!/docs/guide/apt/mirror" />
-        </JAVADOC>
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://C:/m2repo/classworlds/classworlds/1.1/classworlds-1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$M2_HOME$/lib/plexus-interactivity-api-1.0-alpha-4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/qdox/qdox/1.6-SNAPSHOT/qdox-1.6-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module" module-name="maven" />
+    <orderEntry type="module" module-name="maven-plugin-tools-anno-api" exported="" />
+    <orderEntry type="module" module-name="maven" exported="" />
     <orderEntryProperties />
   </component>
 </module>
