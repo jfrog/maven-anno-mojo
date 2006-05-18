@@ -18,7 +18,6 @@
     </moduleSets>
     <fileSets>
         <fileSet>
-
             <includes>
                 <include>README*</include>
                 <include>LICENSE*</include>

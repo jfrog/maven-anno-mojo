@@ -1,4 +1,4 @@
-package com.cisco.nm.vms.build.it;
+package com.alphacsp.it;
 
 public interface Jarred2 {
 	public void method1();
