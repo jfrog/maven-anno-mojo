@@ -9,6 +9,9 @@
     <name>it-parent</name>
     <version>1.0</version>
     <packaging>pom</packaging>
+    <modules>
+        <module>it01</module>
+    </modules>
     <build>
         <plugins>
             <plugin>

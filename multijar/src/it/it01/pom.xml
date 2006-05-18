@@ -5,22 +5,20 @@
           http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.alphacsp.maven.it</groupId>
-    <artifactId>project1</artifactId>
-    <name>project1</name>
+    <artifactId>it01</artifactId>
+    <name>it01</name>
     <version>1.0</version>
     <packaging>multijar</packaging>
-    <!--<parent>-->
-    <!--<groupId>com.alphacsp.maven.it</groupId>-->
-    <!--<artifactId>projects</artifactId>-->
-    <!--<version>1.0</version>-->
-    <!--</parent>-->
+    <parent>
+        <groupId>com.alphacsp.maven.it</groupId>
+        <artifactId>it-parent</artifactId>
+        <version>1.0</version>
+    </parent>
     <build>
         <plugins>
             <plugin>
                 <groupId>com.alphacsp.maven.plugins</groupId>
                 <artifactId>multijar-plugin</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <extensions>true</extensions>
                 <configuration>
                     <signConfig>
                         <alias>vmsdesktop</alias>
@@ -41,15 +39,6 @@
                     </multijars>
                 </configuration>
                 <executions>
-                    <!--<execution>-->
-                    <!--<goals>-->
-                    <!--<goal>sign</goal>-->
-                    <!--</goals>-->
-                    <!--<phase>package</phase>-->
-                    <!--<configuration>-->
-                    <!--...-->
-                    <!--</configuration>-->
-                    <!--</execution>-->
                 </executions>
             </plugin>
         </plugins>
