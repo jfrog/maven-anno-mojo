@@ -7,12 +7,12 @@
     <moduleSets>
         <moduleSet>
             <binaries>
-                <outputDirectory>modules/${artifactId}</outputDirectory>
+                <outputDirectory>${artifactId}</outputDirectory>
                 <includeDependencies>false</includeDependencies>
                 <unpack>false</unpack>
             </binaries>
             <sources>
-                <outputDirectory>sources/${artifactId}</outputDirectory>
+                <outputDirectory>${artifactId}</outputDirectory>
             </sources>
         </moduleSet>
     </moduleSets>
