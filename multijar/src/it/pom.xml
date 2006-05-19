@@ -19,6 +19,32 @@
                 <artifactId>multijar-plugin</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <signConfig>
+                        <alias>vmsdesktop</alias>
+                        <keystore>${project.basedir}/src/main/.keystore/VMSDesktopKeystore</keystore>
+                        <storepass>desktop</storepass>
+                    </signConfig>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>assemble</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>assembly</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
             </plugin>
         </plugins>
     </build>

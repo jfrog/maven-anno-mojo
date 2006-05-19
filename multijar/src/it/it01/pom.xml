@@ -20,11 +20,6 @@
                 <groupId>com.alphacsp.maven.plugins</groupId>
                 <artifactId>multijar-plugin</artifactId>
                 <configuration>
-                    <signConfig>
-                        <alias>vmsdesktop</alias>
-                        <keystore>${project.basedir}/src/main/.keystore/VMSDesktopKeystore</keystore>
-                        <storepass>desktop</storepass>
-                    </signConfig>
                     <multijars>
                         <multijar>
                             <excludes>**/Jarred1*</excludes>
@@ -38,8 +33,6 @@
                         </multijar>
                     </multijars>
                 </configuration>
-                <executions>
-                </executions>
             </plugin>
         </plugins>
     </build>

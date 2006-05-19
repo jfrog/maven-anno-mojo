@@ -184,6 +184,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../../maven.iml" filepath="$PROJECT_DIR$/../../../../maven.iml" />
       <module fileurl="file://$PROJECT_DIR$/../maven-plugin-tools-anno/maven-plugin-tools-anno.iml" filepath="$PROJECT_DIR$/../maven-plugin-tools-anno/maven-plugin-tools-anno.iml" />
       <module fileurl="file://$PROJECT_DIR$/../maven-plugin-tools-anno-api/maven-plugin-tools-anno-api.iml" filepath="$PROJECT_DIR$/../maven-plugin-tools-anno-api/maven-plugin-tools-anno-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/multijar.iml" filepath="$PROJECT_DIR$/multijar.iml" />
