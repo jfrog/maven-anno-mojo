@@ -129,6 +129,9 @@ public class Multijar extends MvnInjectableSupport {
             getLog().info("Jarring: " + jarfile.getAbsolutePath());
             jarTask.execute();
 
+            //Add the default artifact
+            getProjectHelper().attachArtifact(getProject(), "jar", "multijar", jarfile);
+
             handleSignjar(singleJar);
         } catch (ManifestException e) {
             throw new MojoExecutionException("Jar manifest creation failed", e);
@@ -140,10 +143,9 @@ public class Multijar extends MvnInjectableSupport {
         //First check if there is a general signning config, then use specific sign configs to
         //overrride the general config.
         SignJarSupport config = mojo.getSignConfig();
+        //Add the new jar artifact to mvn artifacts
         if (config == null && sign == null) {
-            getLog().info("No signning configured for " + jarfile.getName() + ". Doing nothing.");
-            //Add the new jar artifact to mvn artifacts
-            getProjectHelper().attachArtifact(getProject(), "jar", "multijar", jarfile);
+            getLog().info("No signning configured for " + jarfile.getName() + ". Signing nothing.");
             return;
         }
         //We have a general sign config but no specific one
