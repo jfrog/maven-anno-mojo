@@ -72,12 +72,10 @@ public class Multijar extends MvnInjectableSupport {
 
     public void execute(boolean singleJar)
             throws MojoExecutionException {
+        File defaultArtifactFile = getDefaultArtifactFile();
         //Init the defaults (no maven injection for non-mojos)
         if (jarfile == null) {
-            String jarfileName = getProject().getBuild().getDirectory() + "/"
-                    + getProject().getArtifactId() + "-"
-                    + getProject().getVersion() + ".jar";
-            jarfile = new File(jarfileName);
+            jarfile = defaultArtifactFile;
         }
 
         if (basedir == null) {
@@ -130,12 +128,20 @@ public class Multijar extends MvnInjectableSupport {
             jarTask.execute();
 
             //Add the default artifact
-            getProjectHelper().attachArtifact(getProject(), "jar", "multijar", jarfile);
+            getProjectHelper().attachArtifact
+                    (getProject(), "jar", "multijar", defaultArtifactFile);
 
             handleSignjar(singleJar);
         } catch (ManifestException e) {
             throw new MojoExecutionException("Jar manifest creation failed", e);
         }
+    }
+
+    private File getDefaultArtifactFile() {
+        String jarfileName = getProject().getBuild().getDirectory() + "/"
+                + getProject().getArtifactId() + "-"
+                + getProject().getVersion() + ".jar";
+        return new File(jarfileName);
     }
 
     private void handleSignjar(boolean singleJar) throws MojoExecutionException {
