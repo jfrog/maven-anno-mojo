@@ -5,15 +5,14 @@ import com.alphacsp.maven.plugins.signjar.SignJarSupport;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoGoal;
-import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoPhase;
 import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoParameter;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoPhase;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Jar and (optionally) sign multiple jar artifacts
- *
  */
 @MojoGoal("jar")
 @MojoPhase("package")
@@ -27,11 +26,11 @@ public class MultijarMojo extends MvnInjectableMojoSupport {
     private SignJarSupport signConfig;
 
     public void execute() throws MojoExecutionException, MojoFailureException {
-        //Create a default jar in no jars are configured
-        if (multijars == null || multijars.size() == 0) {
+        if (multijars == null) {
             multijars = new ArrayList<Multijar>();
-            multijars.add(new Multijar());
         }
+        //Always create the default jar
+        multijars.add(new Multijar());
         boolean singleJar = multijars.size() == 1;
         try {
             for (Multijar mj : multijars) {

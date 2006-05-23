@@ -22,13 +22,14 @@
                 <configuration>
                     <multijars>
                         <multijar>
+                            <jarfile>${project.build.directory}/proj_excl1.jar</jarfile>
                             <excludes>**/Jarred1*</excludes>
                             <sign>
                                 <alias>vmsdesktop</alias>
                             </sign>
                         </multijar>
                         <multijar>
-                            <jarfile>${project.build.directory}/proj111.jar</jarfile>
+                            <jarfile>${project.build.directory}/proj_excl2.jar</jarfile>
                             <excludes>**/Jarred2*</excludes>
                         </multijar>
                     </multijars>

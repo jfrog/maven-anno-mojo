@@ -62,27 +62,39 @@ public class Multijar extends MvnInjectableSupport {
 
     private MultijarMojo mojo;
 
+    /**
+     * Default ctor
+     */
     public Multijar() {
     }
 
     public void setMojo(MultijarMojo mojo) {
         this.mojo = mojo;
-        updateFrom(mojo);
-    }
-
-    public void execute(boolean singleJar)
-            throws MojoExecutionException {
-        File defaultArtifactFile = getDefaultArtifactFile();
+        updateFromMvnInjectable(mojo);
         //Init the defaults (no maven injection for non-mojos)
         if (jarfile == null) {
-            jarfile = defaultArtifactFile;
+            String jarfileName = getProject().getBuild().getDirectory() + "/"
+                    + getProject().getArtifactId() + "-"
+                    + getProject().getVersion() + ".jar";
+            jarfile = new File(jarfileName);
         }
 
         if (basedir == null) {
             String basedirName = getProject().getBuild().getOutputDirectory();
             basedir = new File(basedirName);
         }
+        //Set includes and excludes defaults
+        //(cannot be configured in javadoc annotations, due to no comment escapes
+        if (includes == null) {
+            includes = "**/**";
+        }
+        if (excludes == null) {
+            excludes = "";
+        }
+    }
 
+    public void execute(boolean singleJar)
+            throws MojoExecutionException {
         //Create an Ant project and attach it to the current Maven execution
         Project antProject = new Project();
         antProject.setBaseDir(getProject().getBasedir());
@@ -107,15 +119,6 @@ public class Multijar extends MvnInjectableSupport {
             //Set the basedir
             jarTask.setBasedir(basedir);
 
-            //Set includes and excludes defaults
-            //(cannot be configured in javadoc annotations, due to no comment escapes
-            if (includes == null) {
-                includes = "**/**";
-            }
-            if (excludes == null) {
-                excludes = "";
-            }
-
             //Set includes and excludes patterns
             jarTask.setIncludes(includes);
             jarTask.setExcludes(excludes);
@@ -127,21 +130,10 @@ public class Multijar extends MvnInjectableSupport {
             getLog().info("Jarring: " + jarfile.getAbsolutePath());
             jarTask.execute();
 
-            //Add the default artifact
-            getProjectHelper().attachArtifact
-                    (getProject(), "jar", "multijar", defaultArtifactFile);
-
             handleSignjar(singleJar);
         } catch (ManifestException e) {
             throw new MojoExecutionException("Jar manifest creation failed", e);
         }
-    }
-
-    private File getDefaultArtifactFile() {
-        String jarfileName = getProject().getBuild().getDirectory() + "/"
-                + getProject().getArtifactId() + "-"
-                + getProject().getVersion() + ".jar";
-        return new File(jarfileName);
     }
 
     private void handleSignjar(boolean singleJar) throws MojoExecutionException {
@@ -149,9 +141,10 @@ public class Multijar extends MvnInjectableSupport {
         //First check if there is a general signning config, then use specific sign configs to
         //overrride the general config.
         SignJarSupport config = mojo.getSignConfig();
-        //Add the new jar artifact to mvn artifacts
         if (config == null && sign == null) {
-            getLog().info("No signning configured for " + jarfile.getName() + ". Signing nothing.");
+            getLog().info("No signning configured for " + jarfile.getName() + ". Doing nothing.");
+            //Add the new jar artifact to mvn artifacts
+            getProjectHelper().attachArtifact(getProject(), "jar", "multijar", jarfile);
             return;
         }
         //We have a general sign config but no specific one
@@ -189,7 +182,7 @@ public class Multijar extends MvnInjectableSupport {
             sign.setClassifier(jarNameNoExt);
         }
         //Execute and add the signed jar as an artifact
-        sign.updateFrom(this);
+        sign.updateFromMvnInjectable(this);
         sign.execute();
     }
 }

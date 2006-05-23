@@ -3,8 +3,8 @@ package com.alphacsp.maven.plugins;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
-import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoParameter;
 import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoComponent;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoParameter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -52,7 +52,7 @@ public abstract class MvnInjectableSupport implements MvnInjectable {
         this.log = log;
     }
 
-    public void updateFrom(MvnInjectable injectable) {
+    public void updateFromMvnInjectable(MvnInjectable injectable) {
         //Set the properties that we expect has been injected to the mojo
         setProject(injectable.getProject());
         setProjectHelper(injectable.getProjectHelper());
