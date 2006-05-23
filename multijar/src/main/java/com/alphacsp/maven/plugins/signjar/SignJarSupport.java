@@ -1,6 +1,6 @@
 package com.alphacsp.maven.plugins.signjar;
 
-import com.alphacsp.maven.plugins.MvnInjectableMojoSupport;
+import com.alphacsp.maven.plugins.common.injectable.MvnInjectableMojoSupport;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoParameter;

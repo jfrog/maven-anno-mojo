@@ -1,6 +1,6 @@
 package com.alphacsp.maven.plugins.multijar;
 
-import com.alphacsp.maven.plugins.MvnInjectableMojoSupport;
+import com.alphacsp.maven.plugins.common.injectable.MvnInjectableMojoSupport;
 import com.alphacsp.maven.plugins.signjar.SignJarSupport;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;

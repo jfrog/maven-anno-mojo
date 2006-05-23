@@ -1,4 +1,4 @@
-package com.alphacsp.maven.plugins;
+package com.alphacsp.maven.plugins.common.injectable;
 
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;

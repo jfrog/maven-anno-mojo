@@ -1,4 +1,4 @@
-package com.alphacsp.maven.plugins;
+package com.alphacsp.maven.plugins.common.injectable;
 
 import org.apache.maven.plugin.ContextEnabled;
 import org.apache.maven.plugin.Mojo;

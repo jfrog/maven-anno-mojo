@@ -1,6 +1,7 @@
 package com.alphacsp.maven.plugins.multijar;
 
-import com.alphacsp.maven.plugins.MvnInjectableSupport;
+import com.alphacsp.maven.plugins.common.ant.AntProjectFactory;
+import com.alphacsp.maven.plugins.common.injectable.MvnInjectableSupport;
 import com.alphacsp.maven.plugins.signjar.SignJarSupport;
 import com.alphacsp.maven.plugins.signjar.SignjarMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -96,9 +97,7 @@ public class Multijar extends MvnInjectableSupport {
     public void execute(boolean singleJar)
             throws MojoExecutionException {
         //Create an Ant project and attach it to the current Maven execution
-        Project antProject = new Project();
-        antProject.setBaseDir(getProject().getBasedir());
-        antProject.init();
+        Project antProject = AntProjectFactory.newAntProject(this);
 
         //Create the Jar task
         Jar jarTask = new Jar();
