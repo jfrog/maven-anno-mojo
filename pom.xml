@@ -5,57 +5,70 @@
           http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>org.apache.maven</groupId>
-         <artifactId>mvn-anno-mojo</artifactId>
-         <version>1.0-SNAPSHOT</version>
+        <artifactId>maven-plugin-tools</artifactId>
+        <version>2.0.4</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.maven</groupId>
     <artifactId>maven-plugin-tools-anno</artifactId>
-    <name>Maven Plugin Tools for Java 1.5+ Annotated Mojos</name>
-    <version>${project.parent.version}</version>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Maven Annotated Mojo</name>
+    <description>Maven2 extention that allows writing annotatd Mojos using JDK 1.5 annotations instead of doclet comments.</description>
+    <url>http://sourceforge.net/projects/mvn-anno-mojo/</url>
+    <inceptionYear>2006</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <url>https://sourceforge.net/tracker/?group_id=166880</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk</connection>
+        <developerConnection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk</developerConnection>
+        <url>http://svn.sourceforge.net/viewcvs.py/mvn-anno-mojo/mvn-anno-mojo/trunk</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-tools-api</artifactId>
             <version>2.0.4</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-descriptor</artifactId>
             <version>2.0.4</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-settings</artifactId>
             <version>2.0.4</version>
-            <scope>compile</scope>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.apache.maven</groupId>-->
-            <!--<artifactId>maven-tools</artifactId>-->
-            <!--<version>2.1-SNAPSHOT</version>-->
-            <!--<scope>compile</scope>-->
-            <!--<optional>true</optional>-->
+        <!--<groupId>org.apache.maven</groupId>-->
+        <!--<artifactId>maven-tools</artifactId>-->
+        <!--<version>2.1-SNAPSHOT</version>-->
+        <!--<scope>compile</scope>-->
+        <!--<optional>true</optional>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.codehaus.plexus</groupId>
             <artifactId>plexus-utils</artifactId>
-		<version>1.1</version>
+            <version>1.1</version>
         </dependency>
         <dependency>
             <groupId>qdox</groupId>
             <artifactId>qdox</artifactId>
             <version>1.6-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-plugin-tools-anno-api</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.sun</groupId>
@@ -65,8 +78,45 @@
             <systemPath>${java.home}/../lib/tools.jar</systemPath>
         </dependency>
     </dependencies>
+
     <build>
+        <defaultGoal>install</defaultGoal>
+        <!-- The folllowing should work with mvn 2.1 and above -->
+        <!--<defaultGoal>clean install assembly:assembly</defaultGoal>-->
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                    <finalName>${artifactId}-${version}</finalName>
+                    <outputDirectory>target/distribution</outputDirectory>
+                    <workDirectory>target/assembly/work</workDirectory>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>2.1</version>
+                        <classifier>sources</classifier>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <templateDirectory>file:src/site/template/</templateDirectory>
+                    <template>mvn-anno-mojo-site.vm</template>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>surefire-report-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -77,4 +127,17 @@
             </plugin>
         </plugins>
     </build>
+
+    <!--<reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>surefire-report-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>-->
 </project>
