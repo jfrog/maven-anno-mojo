@@ -109,7 +109,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="maven-plugin-tools-anno-api" />
     <orderEntry type="module" module-name="maven" />
     <orderEntry type="module-library">
       <library>
