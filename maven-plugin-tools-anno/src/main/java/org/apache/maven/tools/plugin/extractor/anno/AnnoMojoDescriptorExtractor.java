@@ -118,7 +118,8 @@ public class AnnoMojoDescriptorExtractor
         try {
             Main.process(new MojoApf(descriptor), new PrintWriter(System.out), args);
         } catch (Throwable t) {
-            //TODO: [by yl] This is never caught - apt swallows the exception
+            //TODO: [by yl] This is never caught - apt swallows the exception.
+            //Use the TLS to hold thrown exception
             throw new InvalidPluginDescriptorException(
                     "Failed to extract plugin descriptor.", t);
         }

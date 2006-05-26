@@ -154,7 +154,7 @@ class MojoApf implements AnnotationProcessorFactory {
                 if (methodName.startsWith("get")) {
                     pd = new Parameter();
                     propertyName =
-                            methodName.substring(3,4).toLowerCase() + methodName.substring(4);
+                            methodName.substring(3, 4).toLowerCase() + methodName.substring(4);
                     propertyType = d.getReturnType().toString();
                     processPropertyMetadata(d, pd, propertyType, propertyName);
                 }
@@ -207,19 +207,30 @@ class MojoApf implements AnnotationProcessorFactory {
                 if (execute != null) {
                     String executePhase = execute.phase();
                     String executeGoal = execute.goal();
-                    if (executePhase.length() == 0 && executeGoal.length() == 0) {
+                    String lifecycle = execute.lifecycle();
+                    //Nullify empty values
+                    if (executePhase.length() == 0) {
+                        executePhase = null;
+                    }
+                    if (executeGoal.length() == 0) {
+                        executeGoal = null;
+                    }
+                    if (lifecycle.length() == 0) {
+                        lifecycle = null;
+                    }
+                    if (executePhase == null && executeGoal == null) {
                         throw new IllegalArgumentException(
                                 "Eexecute tag requires a 'phase' or 'goal' parameter");
-                    } else if (executePhase.length() != 0 && executeGoal.length() != 0) {
+                    } else if (executePhase != null && executeGoal != null) {
                         throw new IllegalArgumentException(
                                 "@Execute tag can have only one of a 'phase' or 'goal' parameter");
                     }
                     mojoDescriptor.setExecutePhase(executePhase);
                     mojoDescriptor.setExecuteGoal(executeGoal);
-                    String lifecycle = execute.lifecycle();
-                    if (lifecycle.length() != 0) {
+
+                    if (lifecycle != null) {
                         mojoDescriptor.setExecuteLifecycle(lifecycle);
-                        if (executeGoal.length() != 0) {
+                        if (executeGoal != null) {
                             throw new IllegalArgumentException(
                                     "@Execute lifecycle requires a phase instead of a goal");
                         }
