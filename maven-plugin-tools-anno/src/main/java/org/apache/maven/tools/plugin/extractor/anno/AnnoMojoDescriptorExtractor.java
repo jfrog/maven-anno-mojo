@@ -115,7 +115,13 @@ public class AnnoMojoDescriptorExtractor
         String[] args = argsList.toArray(new String[argsList.size()]);
         ArrayList<MojoDescriptor> descriptors = new ArrayList<MojoDescriptor>();
         MojoDescriptorTls.setDescriptors(descriptors);
-        Main.process(new MojoApf(descriptor), new PrintWriter(System.out), args);
+        try {
+            Main.process(new MojoApf(descriptor), new PrintWriter(System.out), args);
+        } catch (Throwable t) {
+            //TODO: [by yl] This is never caught - apt swallows the exception
+            throw new InvalidPluginDescriptorException(
+                    "Failed to extract plugin descriptor.", t);
+        }
         return MojoDescriptorTls.getDescriptors();
     }
 

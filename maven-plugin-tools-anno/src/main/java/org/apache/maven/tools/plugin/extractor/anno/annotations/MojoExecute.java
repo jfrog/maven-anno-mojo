@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Inherited
 public @interface MojoExecute {
-    String phase();
-    String goal();
-    String lifecycle();
+    String phase() default "";
+    String goal() default "";
+    String lifecycle() default "";
 }
