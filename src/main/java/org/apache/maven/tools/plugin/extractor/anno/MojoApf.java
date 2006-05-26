@@ -3,32 +3,16 @@ package org.apache.maven.tools.plugin.extractor.anno;
 import com.sun.mirror.apt.AnnotationProcessor;
 import com.sun.mirror.apt.AnnotationProcessorEnvironment;
 import com.sun.mirror.apt.AnnotationProcessorFactory;
-import com.sun.mirror.declaration.AnnotationTypeDeclaration;
-import com.sun.mirror.declaration.ClassDeclaration;
-import com.sun.mirror.declaration.Declaration;
-import com.sun.mirror.declaration.FieldDeclaration;
-import com.sun.mirror.declaration.InterfaceDeclaration;
-import com.sun.mirror.declaration.MemberDeclaration;
-import com.sun.mirror.declaration.MethodDeclaration;
-import com.sun.mirror.declaration.Modifier;
-import com.sun.mirror.declaration.TypeDeclaration;
+import com.sun.mirror.declaration.*;
 import com.sun.mirror.type.ClassType;
 import com.sun.mirror.type.InterfaceType;
 import com.sun.mirror.util.DeclarationVisitors;
 import com.sun.mirror.util.SimpleDeclarationVisitor;
-import org.apache.maven.plugin.descriptor.DuplicateParameterException;
-import org.apache.maven.plugin.descriptor.MojoDescriptor;
-import org.apache.maven.plugin.descriptor.Parameter;
-import org.apache.maven.plugin.descriptor.PluginDescriptor;
-import org.apache.maven.plugin.descriptor.Requirement;
+import org.apache.maven.plugin.descriptor.*;
 import org.apache.maven.tools.plugin.extractor.anno.annotations.*;
 import org.codehaus.plexus.util.StringUtils;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 class MojoApf implements AnnotationProcessorFactory {
     //Process any set of annotations
@@ -223,19 +207,19 @@ class MojoApf implements AnnotationProcessorFactory {
                 if (execute != null) {
                     String executePhase = execute.phase();
                     String executeGoal = execute.goal();
-                    if (executePhase == null && executeGoal == null) {
+                    if (executePhase.length() == 0 && executeGoal.length() == 0) {
                         throw new IllegalArgumentException(
                                 "Eexecute tag requires a 'phase' or 'goal' parameter");
-                    } else if (executePhase != null && executeGoal != null) {
+                    } else if (executePhase.length() != 0 && executeGoal.length() != 0) {
                         throw new IllegalArgumentException(
                                 "@Execute tag can have only one of a 'phase' or 'goal' parameter");
                     }
                     mojoDescriptor.setExecutePhase(executePhase);
                     mojoDescriptor.setExecuteGoal(executeGoal);
                     String lifecycle = execute.lifecycle();
-                    if (lifecycle != null) {
+                    if (lifecycle.length() != 0) {
                         mojoDescriptor.setExecuteLifecycle(lifecycle);
-                        if (mojoDescriptor.getExecuteGoal() != null) {
+                        if (executeGoal.length() != 0) {
                             throw new IllegalArgumentException(
                                     "@Execute lifecycle requires a phase instead of a goal");
                         }
