@@ -56,7 +56,8 @@ Usage
 +---+
 
       <NOTE: This plugin relies on JDK 1.5 and uses the Annotation Processing Tool (APT).
-      It is required to run Maven with JDK 1.5 (set your JAVA_HOME to point to JDK 1.5>
+      It is required to run Maven with JDK 1.5 (set your JAVA_HOME to point to JDK 1.5).>
+      
       <Since Maven is currently bundled with QDox 1.5, which does not support Java 5 syntax, QDox 1.6 is used
       (which is compatible with Java 5 syntax).>
      
