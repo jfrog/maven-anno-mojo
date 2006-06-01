@@ -3,7 +3,7 @@
 
     <!--
      |
-     | JavaMojoDescriptorExtractor, a MojoDescriptor extractor to read
+     | AnnoMojoDescriptorExtractor, a MojoDescriptor extractor to read
      | descriptors from java sources.
      |
      -->
