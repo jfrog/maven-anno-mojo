@@ -13,6 +13,10 @@
     <groupId>org.apache.maven</groupId>
     <artifactId>maven-plugin-tools-anno</artifactId>
     <version>1.0-SNAPSHOT</version>
+    
+    <prerequisites>
+      <maven>2.0.4</maven>
+    </prerequisites>
 
     <name>Maven Annotated Mojo</name>
     <description>Maven2 extention that allows writing annotatd Mojos using JDK 1.5 annotations instead of doclet comments.</description>
@@ -106,14 +110,6 @@
                 </dependencies>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <configuration>
-                    <templateDirectory>file:src/site/template/</templateDirectory>
-                    <template>mvn-anno-mojo-site.vm</template>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>surefire-report-maven-plugin</artifactId>
             </plugin>
@@ -128,7 +124,7 @@
         </plugins>
     </build>
 
-    <!--<reporting>
+    <reporting>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -139,5 +135,5 @@
                 <artifactId>surefire-report-maven-plugin</artifactId>
             </plugin>
         </plugins>
-    </reporting>-->
+    </reporting>
 </project>

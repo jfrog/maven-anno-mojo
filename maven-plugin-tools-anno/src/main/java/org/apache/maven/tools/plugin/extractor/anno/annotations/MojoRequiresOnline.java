@@ -3,8 +3,8 @@ package org.apache.maven.tools.plugin.extractor.anno.annotations;
 import java.lang.annotation.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: yoavl
+ * 
+ * . User: yoavl
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)
