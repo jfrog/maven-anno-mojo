@@ -17,25 +17,7 @@
     <orderEntry type="module-library">
       <library name="junit">
         <CLASSES>
-          <root url="jar://C:/m2repo/junit/junit/3.8.1/junit-3.8.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/qdox/qdox/1.6-SNAPSHOT/qdox-1.6-SNAPSHOT.jar!/" />
+          <root url="jar:///work/localrepos/junit/junit/3.8.1/junit-3.8.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -45,7 +27,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-model/2.0.4/maven-model-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-plugin-descriptor/2.0.4/maven-plugin-descriptor-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -54,7 +36,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-plugin-descriptor/2.0.4/maven-plugin-descriptor-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-artifact/2.0.4/maven-artifact-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -63,7 +45,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-artifact/2.0.4/maven-artifact-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-settings/2.0.4/maven-settings-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -72,7 +54,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-settings/2.0.4/maven-settings-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -81,7 +63,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -90,7 +72,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-artifact-manager/2.0.4/maven-artifact-manager-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -99,7 +81,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-artifact-manager/2.0.4/maven-artifact-manager-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -108,7 +90,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.jar!/" />
+          <root url="jar:///work/localrepos/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -117,7 +99,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-plugin-api/2.0.4/maven-plugin-api-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-plugin-api/2.0.4/maven-plugin-api-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -126,7 +108,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-plugin-tools-api/2.0.4/maven-plugin-tools-api-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-plugin-tools-api/2.0.4/maven-plugin-tools-api-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -135,7 +117,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-profile/2.0.4/maven-profile-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-profile/2.0.4/maven-profile-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -144,7 +126,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/ant/ant/1.5.1/ant-1.5.1.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-repository-metadata/2.0.4/maven-repository-metadata-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -153,7 +135,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$JAVA_DIR$/jdk1.5.0/lib/tools.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-project/2.0.4/maven-project-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -162,7 +144,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-repository-metadata/2.0.4/maven-repository-metadata-2.0.4.jar!/" />
+          <root url="jar:///work/localrepos/org/apache/maven/maven-model/2.0.4/maven-model-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -171,22 +153,17 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/m2repo/org/apache/maven/maven-project/2.0.4/maven-project-2.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://C:/m2repo/jmock/jmock/1.0.0/jmock-1.0.0.jar!/" />
+          <root url="jar:///usr/lib/sun-j2se5.0-jdk/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
     <orderEntryProperties />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ACTIVE_VCS_NAME" value="svn" />
+    <option name="USE_PROJECT_VCS" value="false" />
   </component>
 </module>
 

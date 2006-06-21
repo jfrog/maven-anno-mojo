@@ -151,11 +151,15 @@ public class AnnoMojoDescriptorExtractor
         }
         List<Dependency> dependencies = project.getDependencies();
         for (Dependency dependency : dependencies) {
+            String scope = dependency.getScope();
+            if (scope != null && (scope.equals("system") || scope.equals("runtime"))) {
+                continue;
+            }
             Artifact artifact = artifactFactory.createArtifact(
                     dependency.getGroupId(),
                     dependency.getArtifactId(),
                     dependency.getVersion(),
-                    dependency.getScope(),
+                    scope,
                     dependency.getType());
             try {
                 resolver.resolve(artifact, project.getRemoteArtifactRepositories(),
