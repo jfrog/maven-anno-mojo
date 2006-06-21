@@ -1,8 +1,6 @@
 package org.apache.maven.tools.plugin.extractor.anno;
 
 import com.sun.tools.apt.Main;
-import com.thoughtworks.qdox.JavaDocBuilder;
-import com.thoughtworks.qdox.model.JavaSource;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
 import org.apache.maven.artifact.factory.ArtifactFactory;
@@ -22,6 +20,7 @@ import org.codehaus.plexus.context.Context;
 import org.codehaus.plexus.context.ContextException;
 import org.codehaus.plexus.logging.AbstractLogEnabled;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable;
+import org.codehaus.plexus.util.FileUtils;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -61,23 +60,21 @@ public class AnnoMojoDescriptorExtractor
     @SuppressWarnings({"unchecked"})
     public List<MojoDescriptor> execute(MavenProject project, PluginDescriptor descriptor)
             throws InvalidPluginDescriptorException {
-        JavaDocBuilder builder = new JavaDocBuilder();
         List<String> sourceRoots = project.getCompileSourceRoots();
-        for (String srcRoot : sourceRoots) {
-            builder.addSourceTree(new File(srcRoot));
-        }
         Set<String> sourcePathElements = new HashSet<String>();
-        JavaSource[] sources = builder.getSources();
-        for (JavaSource source : sources) {
-            URL url = source.getURL();
-            String path;
-            try {
-                path = url.getPath();
-            } catch (Exception e) {
-                throw new InvalidPluginDescriptorException(
-                        "Failed to get source files from " + url, e);
+        String srcRoot = null;
+        try {
+            for (String sourceRoot : sourceRoots) {
+                srcRoot = sourceRoot;
+                List<File> files = FileUtils.getFiles(new File(srcRoot), "**/*.java", null, true);
+                for (File file : files) {
+                    String path = file.getPath();
+                    sourcePathElements.add(path);
+                }
             }
-            sourcePathElements.add(path);
+        } catch (Exception e) {
+            throw new InvalidPluginDescriptorException(
+                    "Failed to get source files from " + srcRoot, e);
         }
         List<String> argsList = new ArrayList<String>();
         argsList.add("-nocompile");
