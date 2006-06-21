@@ -3,13 +3,13 @@
 
     <!--
      |
-     | JavaMojoDescriptorExtractor, a MojoDescriptor extractor to read
+     | AnnoMojoDescriptorExtractor, a MojoDescriptor extractor to read
      | descriptors from java sources.
      |
      -->
     <component>
       <role>org.apache.maven.tools.plugin.extractor.MojoDescriptorExtractor</role>
-      <role-hint>anno</role-hint>
+      <role-hint>java</role-hint>
       <implementation>org.apache.maven.tools.plugin.extractor.anno.AnnoMojoDescriptorExtractor</implementation>
     </component>
     

@@ -1,0 +1,116 @@
+ -----
+Usage
+ -----
+Yoav Landman
+ -----
+11 May 2006
+ -----
+
+Usage
+
+* POM Settings
+
+        Simply add the following to your POM:
+
++---+
+<project>
+    ...
+    <dependencies>
+        ...
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-tools-anno</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        ...
+    </dependencies>
+
+    <build>
+        <plugins>
+            ...
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>2.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven</groupId>
+                        <artifactId>maven-plugin-tools-anno</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+            ...
+        </plugins>
+    </build>
+</project>
++---+
+
+      <NOTE: This plugin relies on JDK 1.5 and uses the Annotation Processing Tool (APT).
+      It is required to run Maven with JDK 1.5 (set your JAVA_HOME to point to JDK 1.5).>
+      
+* Using Annotations
+
+** Class and Field Annotations
+    
+    {{{apidocs//org/apache/maven/tools/plugin/extractor/anno/annotations/package-summary.html}<<<org.apache.maven.tools.plugin.extractor.anno.annotations.Mojo*>>>}} annotations can be applied to classes or fields.
+    
+    For example:
+    
++---+
+/**
+ * My mojo description
+ */
+@MojoGoal("doIt")
+@MojoPhase("package")
+@MojoExecute(phase = "package")
+public class MyMojo {
+
+        @MojoParameter
+        private List<Artifact> artifacts;
+        
+        @MojoParameter(expression = "${project}", required = true, readonly = true,
+                description = "The Maven Project")
+        private MavenProject project;
+
+        /**
+         * The local repository
+         */
+        @MojoParameter(expression = "${localRepository}")
+        private ArtifactRepository localRepository;
+    ...
+}
++---+
+    
+    Element description is taken either from the element's JavaDoc comment or from a <<<description>>> attribute on appropriate annotations.
+        
+** Getter Methods Annotations
+    
+    You can also use field annotations on getter methods, either in interfaces or regular classes.
+    
+    For example:
+    
++---+
+public interface MvnInjectable {
+
+    /**
+     * project-helper instance, used to make addition of resources simpler.
+     */
+    @MojoComponent
+    MavenProjectHelper getProjectHelper();
+}
++---+
+
+** Limitations
+    
+    <Please note that you cannot mix JDK 1.5 style annotations and regular doclet style annotations for the same Mojo.
+    You have to pick either style!>

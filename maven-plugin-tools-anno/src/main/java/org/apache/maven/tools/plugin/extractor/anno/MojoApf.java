@@ -154,7 +154,7 @@ class MojoApf implements AnnotationProcessorFactory {
                 if (methodName.startsWith("get")) {
                     pd = new Parameter();
                     propertyName =
-                            methodName.substring(3,4).toLowerCase() + methodName.substring(4);
+                            methodName.substring(3, 4).toLowerCase() + methodName.substring(4);
                     propertyType = d.getReturnType().toString();
                     processPropertyMetadata(d, pd, propertyType, propertyName);
                 }
@@ -207,6 +207,17 @@ class MojoApf implements AnnotationProcessorFactory {
                 if (execute != null) {
                     String executePhase = execute.phase();
                     String executeGoal = execute.goal();
+                    String lifecycle = execute.lifecycle();
+                    //Nullify empty values
+                    if (executePhase.length() == 0) {
+                        executePhase = null;
+                    }
+                    if (executeGoal.length() == 0) {
+                        executeGoal = null;
+                    }
+                    if (lifecycle.length() == 0) {
+                        lifecycle = null;
+                    }
                     if (executePhase == null && executeGoal == null) {
                         throw new IllegalArgumentException(
                                 "Eexecute tag requires a 'phase' or 'goal' parameter");
@@ -216,10 +227,10 @@ class MojoApf implements AnnotationProcessorFactory {
                     }
                     mojoDescriptor.setExecutePhase(executePhase);
                     mojoDescriptor.setExecuteGoal(executeGoal);
-                    String lifecycle = execute.lifecycle();
+
                     if (lifecycle != null) {
                         mojoDescriptor.setExecuteLifecycle(lifecycle);
-                        if (mojoDescriptor.getExecuteGoal() != null) {
+                        if (executeGoal != null) {
                             throw new IllegalArgumentException(
                                     "@Execute lifecycle requires a phase instead of a goal");
                         }
@@ -376,10 +387,8 @@ class MojoApf implements AnnotationProcessorFactory {
             }
 
             private boolean shouldProcessClass(ClassType superclass) {
-                if (superclass == null) {
-                    return false;
-                }
-                return (!superclass.getDeclaration().getQualifiedName().equals("java.lang.Object"));
+                return superclass != null && (!superclass.getDeclaration().getQualifiedName()
+                        .equals("java.lang.Object"));
             }
 
             private boolean checkVisited(Declaration d) {
