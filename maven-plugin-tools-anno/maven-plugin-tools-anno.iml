@@ -17,7 +17,7 @@
     <orderEntry type="module-library">
       <library name="junit">
         <CLASSES>
-          <root url="jar:///work/localrepos/junit/junit/3.8.1/junit-3.8.1.jar!/" />
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -27,7 +27,73 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-plugin-descriptor/2.0.4/maven-plugin-descriptor-2.0.4.jar!/" />
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-plugin-descriptor/2.0.4/maven-plugin-descriptor-2.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-plugin-descriptor/2.0.4/maven-plugin-descriptor-2.0.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-artifact/2.0.4/maven-artifact-2.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-artifact/2.0.4/maven-artifact-2.0.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-settings/2.0.4/maven-settings-2.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-settings/2.0.4/maven-settings-2.0.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-artifact-manager/2.0.4/maven-artifact-manager-2.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-artifact-manager/2.0.4/maven-artifact-manager-2.0.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -36,7 +102,62 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-artifact/2.0.4/maven-artifact-2.0.4.jar!/" />
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-plugin-api/2.0.4/maven-plugin-api-2.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-plugin-api/2.0.4/maven-plugin-api-2.0.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-plugin-tools-api/2.0.4/maven-plugin-tools-api-2.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-plugin-tools-api/2.0.4/maven-plugin-tools-api-2.0.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-profile/2.0.4/maven-profile-2.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-profile/2.0.4/maven-profile-2.0.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-repository-metadata/2.0.4/maven-repository-metadata-2.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-repository-metadata/2.0.4/maven-repository-metadata-2.0.4-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Program Files/Java/jdk1.5.0_06/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -45,118 +166,23 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-settings/2.0.4/maven-settings-2.0.4.jar!/" />
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-project/2.0.4/maven-project-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-project/2.0.4/maven-project-2.0.4-sources.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///work/localrepos/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.jar!/" />
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-model/2.0.4/maven-model-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-6/wagon-provider-api-1.0-alpha-6.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-artifact-manager/2.0.4/maven-artifact-manager-2.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-plugin-api/2.0.4/maven-plugin-api-2.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-plugin-tools-api/2.0.4/maven-plugin-tools-api-2.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-profile/2.0.4/maven-profile-2.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-repository-metadata/2.0.4/maven-repository-metadata-2.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-project/2.0.4/maven-project-2.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///work/localrepos/org/apache/maven/maven-model/2.0.4/maven-model-2.0.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///usr/lib/sun-j2se5.0-jdk/lib/tools.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://D:/Documents and Settings/ofridler/.m2/repository/org/apache/maven/maven-model/2.0.4/maven-model-2.0.4-sources.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntryProperties />
