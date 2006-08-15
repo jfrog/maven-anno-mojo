@@ -19,7 +19,9 @@
     </prerequisites>
 
     <name>Maven Annotated Mojo</name>
-    <description>Maven2 extention that allows writing annotatd Mojos using JDK 1.5 annotations instead of doclet comments.</description>
+    <description>Maven2 extention that allows writing annotatd Mojos using JDK 1.5 annotations instead of doclet
+        comments.
+    </description>
     <url>http://sourceforge.net/projects/mvn-anno-mojo/</url>
     <inceptionYear>2006</inceptionYear>
 
@@ -37,7 +39,8 @@
 
     <scm>
         <connection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk</connection>
-        <developerConnection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk</developerConnection>
+        <developerConnection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk
+        </developerConnection>
         <url>http://svn.sourceforge.net/viewcvs.py/mvn-anno-mojo/mvn-anno-mojo/trunk</url>
     </scm>
 
@@ -124,4 +127,27 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <profiles>
+        <profile>
+            <id>juice</id>
+            <distributionManagement>
+                <site>
+                    <id>juice-server</id>
+                    <name>jade-plugins-sites</name>
+                    <url>scp://juice.alphacsp.com/home/whorehouse/alphacsp/sites/mvn-anno-mojo</url>
+                </site>
+                <repository>
+                    <id>juice-http-server</id>
+                    <name>jade-plugins-dist</name>
+                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                </repository>
+                <snapshotRepository>
+                    <id>juice-http-server</id>
+                    <name>jade-plugins-snapshots</name>
+                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 </project>
