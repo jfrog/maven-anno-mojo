@@ -149,6 +149,24 @@
                     </snapshots>
                 </repository>
             </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <name>jade-plugins-dist</name>
+                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>snapshots</id>
+                    <name>jade-plugins-snapshots</name>
+                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
             <distributionManagement>
                 <site>
                     <id>juice-server</id>
