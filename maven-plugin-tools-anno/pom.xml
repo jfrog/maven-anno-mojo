@@ -3,11 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
           http://maven.apache.org/maven-v4_0_0.xsd">
-    <parent>
+    <!--parent>
         <groupId>org.apache.maven</groupId>
         <artifactId>maven-plugin-tools</artifactId>
         <version>2.0.4</version>
-    </parent>
+    </parent-->
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.maven</groupId>
@@ -39,8 +39,7 @@
 
     <scm>
         <connection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk</connection>
-        <developerConnection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk
-        </developerConnection>
+        <developerConnection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk</developerConnection>
         <url>http://svn.sourceforge.net/viewcvs.py/mvn-anno-mojo/mvn-anno-mojo/trunk</url>
     </scm>
 
@@ -131,11 +130,16 @@
     <profiles>
         <profile>
             <id>juice</id>
+            <properties>
+                <repo-url>http://juice.alphacsp.com/artifactory/repo</repo-url>
+		<repo-releases>@plugin-releases</repo-releases>
+		<repo-snapshots>@plugin-snapshots</repo-snapshots>
+            </properties>
             <repositories>
                 <repository>
                     <id>central</id>
                     <name>jade-plugins-dist</name>
-                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                    <url>${repo-url}${repo-releases}</url>
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
@@ -143,7 +147,7 @@
                 <repository>
                     <id>snapshots</id>
                     <name>jade-plugins-snapshots</name>
-                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                    <url>${repo-url}${repo-snapshots}</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
@@ -153,7 +157,7 @@
                 <pluginRepository>
                     <id>central</id>
                     <name>jade-plugins-dist</name>
-                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                    <url>${repo-url}${repo-releases}</url>
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
@@ -161,7 +165,7 @@
                 <pluginRepository>
                     <id>snapshots</id>
                     <name>jade-plugins-snapshots</name>
-                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                    <url>${repo-url}${repo-snapshots}</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
@@ -176,12 +180,12 @@
                 <repository>
                     <id>juice-http-server</id>
                     <name>jade-plugins-dist</name>
-                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                    <url>${repo-url}${repo-releases}</url>
                 </repository>
                 <snapshotRepository>
                     <id>juice-http-server</id>
                     <name>jade-plugins-snapshots</name>
-                    <url>http://juice.alphacsp.com/rtfact/repos</url>
+                    <url>${repo-url}${repo-snapshots}</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
