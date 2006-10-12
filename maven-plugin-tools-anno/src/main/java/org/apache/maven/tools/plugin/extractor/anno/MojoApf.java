@@ -3,22 +3,52 @@ package org.apache.maven.tools.plugin.extractor.anno;
 import com.sun.mirror.apt.AnnotationProcessor;
 import com.sun.mirror.apt.AnnotationProcessorEnvironment;
 import com.sun.mirror.apt.AnnotationProcessorFactory;
-import com.sun.mirror.declaration.*;
+import com.sun.mirror.declaration.AnnotationTypeDeclaration;
+import com.sun.mirror.declaration.ClassDeclaration;
+import com.sun.mirror.declaration.Declaration;
+import com.sun.mirror.declaration.FieldDeclaration;
+import com.sun.mirror.declaration.InterfaceDeclaration;
+import com.sun.mirror.declaration.MemberDeclaration;
+import com.sun.mirror.declaration.MethodDeclaration;
+import com.sun.mirror.declaration.Modifier;
+import com.sun.mirror.declaration.TypeDeclaration;
 import com.sun.mirror.type.ClassType;
 import com.sun.mirror.type.InterfaceType;
 import com.sun.mirror.util.DeclarationVisitors;
 import com.sun.mirror.util.SimpleDeclarationVisitor;
-import org.apache.maven.plugin.descriptor.*;
-import org.apache.maven.tools.plugin.extractor.anno.annotations.*;
+import org.apache.maven.plugin.descriptor.DuplicateParameterException;
+import org.apache.maven.plugin.descriptor.MojoDescriptor;
+import org.apache.maven.plugin.descriptor.Parameter;
+import org.apache.maven.plugin.descriptor.PluginDescriptor;
+import org.apache.maven.plugin.descriptor.Requirement;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoAggregator;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoComponent;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoConfigurator;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoExecute;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoGoal;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoInheritedByDefault;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoInstantiationStrategy;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoMultiExecution;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoParameter;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoPhase;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoRequiresDependencyResolution;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoRequiresDirectInvocation;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoRequiresOnline;
+import org.apache.maven.tools.plugin.extractor.anno.annotations.MojoRequiresProject;
 import org.codehaus.plexus.util.StringUtils;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 class MojoApf implements AnnotationProcessorFactory {
     //Process any set of annotations
     private static final Collection<String> supportedAnnotations
             = Collections.unmodifiableCollection(Arrays.asList(
             AnnoMojoDescriptorExtractor.class.getPackage().getName() + ".annotations.*"));
+
     //No supported options
     private static final Collection<String> supportedOptions = Collections.emptySet();
 
@@ -63,23 +93,24 @@ class MojoApf implements AnnotationProcessorFactory {
         private class MojoClassVisitor extends SimpleDeclarationVisitor {
 
             private MojoDescriptor mojoDescriptor;
+
             private Set<Declaration> visitedDeclarations = new HashSet<Declaration>();
 
             public void visitClassDeclaration(ClassDeclaration d) {
                 //Merge supper classes and interfaces declarations in top down fashion
                 //(actually we're overriding topmost metadata with bottom-most one)
                 Collection<Modifier> modifiers = d.getModifiers();
-                boolean abstarct = false;
+                boolean isAbstract = false;
                 for (Modifier modifier : modifiers) {
                     if (modifier.equals(Modifier.ABSTRACT)) {
-                        abstarct = true;
+                        isAbstract = true;
                         break;
                     }
                 }
                 if (checkVisited(d)) {
                     return;
                 }
-                if (abstarct && mojoDescriptor == null) {
+                if (isAbstract && mojoDescriptor == null) {
                     return;
                 }
                 // ----------------------------------------------------------------------
@@ -93,7 +124,6 @@ class MojoApf implements AnnotationProcessorFactory {
                 }
                 //Create a new descriptor and set the following only for the concrete mojo
                 if (mojoDescriptor == null) {
-                    mojoDescriptor = new MojoDescriptor();
                     mojoDescriptor = new MojoDescriptor();
                     mojoDescriptor.setPluginDescriptor(descriptor);
                     mojoDescriptor.setLanguage("java");
