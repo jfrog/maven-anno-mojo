@@ -39,7 +39,8 @@
 
     <scm>
         <connection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk</connection>
-        <developerConnection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk</developerConnection>
+        <developerConnection>scm:svn:https://svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk
+        </developerConnection>
         <url>http://svn.sourceforge.net/viewcvs.py/mvn-anno-mojo/mvn-anno-mojo/trunk</url>
     </scm>
 
@@ -99,10 +100,10 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <plugin>
+            <!-- plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>surefire-report-maven-plugin</artifactId>
-            </plugin>
+            </plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -110,15 +111,6 @@
                     <source>1.5</source>
                     <target>1.5</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals><goal>jar</goal></goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
@@ -141,8 +133,8 @@
             <id>juice</id>
             <properties>
                 <repo-url>http://juice.alphacsp.com/artifactory/repo</repo-url>
-		<repo-releases>@plugin-releases</repo-releases>
-		<repo-snapshots>@plugin-snapshots</repo-snapshots>
+                <repo-releases>@plugin-releases</repo-releases>
+                <repo-snapshots>@plugin-snapshots</repo-snapshots>
             </properties>
             <repositories>
                 <repository>
