@@ -132,9 +132,9 @@
         <profile>
             <id>juice</id>
             <properties>
-                <repo-url>http://juice.alphacsp.com/artifactory/repo</repo-url>
-                <repo-releases>@plugin-releases</repo-releases>
-                <repo-snapshots>@plugin-snapshots</repo-snapshots>
+                <repo-url>http://juice.alphacsp.com/artifactory/</repo-url>
+                <repo-releases>plugin-releases@repo</repo-releases>
+                <repo-snapshots>plugin-snapshots@repo</repo-snapshots>
             </properties>
             <repositories>
                 <repository>
