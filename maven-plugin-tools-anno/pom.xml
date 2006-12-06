@@ -100,10 +100,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            <!-- plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>surefire-report-maven-plugin</artifactId>
-            </plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -120,6 +116,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -158,7 +165,7 @@
                 <pluginRepository>
                     <id>central</id>
                     <name>jade-plugins-dist</name>
-                    <url>${repo-url}${repo-releases}</url>
+                    <url>${repo-url}plugin-releases@repo</url>
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
@@ -166,7 +173,7 @@
                 <pluginRepository>
                     <id>snapshots</id>
                     <name>jade-plugins-snapshots</name>
-                    <url>${repo-url}${repo-snapshots}</url>
+                    <url>${repo-url}plugin-snapshots@repo</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
@@ -176,7 +183,7 @@
                 <site>
                     <id>juice-server</id>
                     <name>jade-plugins-sites</name>
-                    <url>scp://juice.alphacsp.com/home/whorehouse/alphacsp/sites/mvn-anno-mojo</url>
+                    <url>scp://juice.alphacsp.com/home/whorehouse/alphacsp/sites/mvn-anno-mojo/${version}</url>
                 </site>
                 <repository>
                     <id>juice-http-server</id>
