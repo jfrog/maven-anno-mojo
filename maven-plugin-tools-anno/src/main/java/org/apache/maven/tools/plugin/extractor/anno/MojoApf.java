@@ -280,7 +280,7 @@ class MojoApf implements AnnotationProcessorFactory {
                 // ----------------------------------------------------------------------
                 MojoRequiresProject requiresProject = d.getAnnotation(MojoRequiresProject.class);
                 if (requiresProject != null) {
-                    mojoDescriptor.setProjectRequired(true);
+                    mojoDescriptor.setProjectRequired(requiresProject.value());
                 } else {
                     mojoDescriptor.setProjectRequired(mojoDescriptor.isProjectRequired());
                 }

@@ -1,6 +1,10 @@
 package org.apache.maven.tools.plugin.extractor.anno.annotations;
 
-import java.lang.annotation.*;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  *
@@ -11,4 +15,5 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Inherited
 public @interface MojoRequiresProject {
+    boolean value() default true;
 }
