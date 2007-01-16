@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+          http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.jfrog.maven.annomojo</groupId>
+    <artifactId>maven-plugin-anno-parent</artifactId>
+    <version>1.2-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <prerequisites>
+        <maven>2.0.4</maven>
+    </prerequisites>
+
+    <name>AnnoMojo Parent</name>
+    <description>Maven2 extention that allows writing annotatd Mojos using JDK 1.5 annotations instead of doclet
+        comments.
+    </description>
+    <url>http://www.sourceforge.net/projects/mvn-anno-mojo/</url>
+    <inceptionYear>2006</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <url>https://sourceforge.net/tracker/?group_id=166880</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:svn:https://mvn-anno-mojo.svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk
+        </connection>
+        <developerConnection>scm:svn:https://mvn-anno-mojo.svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk
+        </developerConnection>
+        <url>http://svn.sourceforge.net/viewcvs.py/mvn-anno-mojo/mvn-anno-mojo/trunk</url>
+    </scm>
+
+    <modules>
+        <module>maven-plugin-anno</module>
+        <module>maven-plugin-tools-anno</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jfrog.maven.annomojo</groupId>
+                <artifactId>maven-plugin-anno</artifactId>
+                <version>${version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <!-- The folllowing should work with mvn 2.1 and above -->
+        <!--<defaultGoal>clean install assembly:assembly</defaultGoal>-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>surefire-report-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <profiles>
+        <profile>
+            <id>juice</id>
+            <properties>
+                <repo-url>http://juice.alphacsp.com/artifactory/</repo-url>
+                <repo-releases>plugin-releases@repo</repo-releases>
+                <repo-snapshots>plugin-snapshots@repo</repo-snapshots>
+            </properties>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <name>jade-plugins-dist</name>
+                    <url>${repo-url}${repo-releases}</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>snapshots</id>
+                    <name>jade-plugins-snapshots</name>
+                    <url>${repo-url}${repo-snapshots}</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <name>jade-plugins-dist</name>
+                    <url>${repo-url}plugin-releases@repo</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>snapshots</id>
+                    <name>jade-plugins-snapshots</name>
+                    <url>${repo-url}plugin-snapshots@repo</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+            <distributionManagement>
+                <site>
+                    <id>juice-server</id>
+                    <name>jade-plugins-sites</name>
+                    <url>scp://juice.alphacsp.com/home/whorehouse/jfrog/sites/mvn-anno-mojo</url>
+                </site>
+                <repository>
+                    <id>juice-http-server</id>
+                    <name>jade-plugins-dist</name>
+                    <url>${repo-url}${repo-releases}</url>
+                </repository>
+                <snapshotRepository>
+                    <id>juice-http-server</id>
+                    <name>jade-plugins-snapshots</name>
+                    <url>${repo-url}${repo-snapshots}</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+</project>
