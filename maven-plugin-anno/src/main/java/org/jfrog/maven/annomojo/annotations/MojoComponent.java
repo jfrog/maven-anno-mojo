@@ -1,4 +1,4 @@
-package org.jfrog.maven.annomojo.annotations.annotations;
+package org.jfrog.maven.annomojo.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -12,7 +12,12 @@ import java.lang.annotation.Target;
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE})
+@Target({ElementType.METHOD, ElementType.FIELD})
 @Inherited
-public @interface MojoRequiresOnline {
+public @interface MojoComponent {
+    String description() default "";
+
+    String role() default "";
+
+    String roleHint() default "";
 }

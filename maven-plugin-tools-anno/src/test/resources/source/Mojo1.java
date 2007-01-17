@@ -2,9 +2,9 @@ package source;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoGoal;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoParameter;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoPhase;
+import org.jfrog.maven.annomojo.annotations.MojoGoal;
+import org.jfrog.maven.annomojo.annotations.MojoParameter;
+import org.jfrog.maven.annomojo.annotations.MojoPhase;
 
 import java.io.File;
 import java.util.List;

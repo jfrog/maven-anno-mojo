@@ -2,8 +2,8 @@ package source;
 
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoComponent;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoParameter;
+import org.jfrog.maven.annomojo.annotations.MojoComponent;
+import org.jfrog.maven.annomojo.annotations.MojoParameter;
 
 
 /**

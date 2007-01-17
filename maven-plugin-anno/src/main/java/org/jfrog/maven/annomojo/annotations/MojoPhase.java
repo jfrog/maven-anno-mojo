@@ -1,4 +1,4 @@
-package org.jfrog.maven.annomojo.annotations.annotations;
+package org.jfrog.maven.annomojo.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;

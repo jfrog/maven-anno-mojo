@@ -22,7 +22,7 @@ import org.apache.maven.plugin.descriptor.Parameter;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugin.descriptor.Requirement;
 import org.codehaus.plexus.util.StringUtils;
-import org.jfrog.maven.annomojo.annotations.annotations.*;
+import org.jfrog.maven.annomojo.annotations.*;
 
 import java.util.Arrays;
 import java.util.Collection;
