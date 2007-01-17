@@ -33,11 +33,11 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:svn:https://mvn-anno-mojo.svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk
+        <connection>scm:svn:http://mvn-anno-mojo.svn.sourceforge.net/svnroot/mvn-anno-mojo/trunk
         </connection>
-        <developerConnection>scm:svn:https://mvn-anno-mojo.svn.sourceforge.net/svnroot/mvn-anno-mojo/mvn-anno-mojo/trunk
+        <developerConnection>scm:svn:https://mvn-anno-mojo.svn.sourceforge.net/svnroot/mvn-anno-mojo/trunk
         </developerConnection>
-        <url>http://svn.sourceforge.net/viewcvs.py/mvn-anno-mojo/mvn-anno-mojo/trunk</url>
+        <url>http://svn.sourceforge.net/viewvc/mvn-anno-mojo/trunk</url>
     </scm>
 
     <modules>
