@@ -1,4 +1,4 @@
-package org.apache.maven.tools.plugin.extractor.anno;
+package org.jfrog.maven.annomojo.extractor;
 
 import com.sun.mirror.apt.AnnotationProcessor;
 import com.sun.mirror.apt.AnnotationProcessorEnvironment;
@@ -22,20 +22,7 @@ import org.apache.maven.plugin.descriptor.Parameter;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugin.descriptor.Requirement;
 import org.codehaus.plexus.util.StringUtils;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoAggregator;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoComponent;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoConfigurator;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoExecute;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoGoal;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoInheritedByDefault;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoInstantiationStrategy;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoMultiExecution;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoParameter;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoPhase;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoRequiresDependencyResolution;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoRequiresDirectInvocation;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoRequiresOnline;
-import org.jfrog.maven.annomojo.annotations.annotations.MojoRequiresProject;
+import org.jfrog.maven.annomojo.annotations.annotations.*;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -47,7 +34,7 @@ class MojoApf implements AnnotationProcessorFactory {
     //Process any set of annotations
     private static final Collection<String> supportedAnnotations
             = Collections.unmodifiableCollection(Arrays.asList(
-            AnnoMojoDescriptorExtractor.class.getPackage().getName() + ".annotations.*"));
+            MojoAnnotation.class.getPackage().getName() + ".*"));
 
     //No supported options
     private static final Collection<String> supportedOptions = Collections.emptySet();

@@ -1,17 +1,17 @@
 <component-set>
-  <components>
+    <components>
 
-    <!--
-     |
-     | AnnoMojoDescriptorExtractor, a MojoDescriptor extractor to read
-     | descriptors from java sources.
-     |
-     -->
-    <component>
-      <role>org.apache.maven.tools.plugin.extractor.MojoDescriptorExtractor</role>
-      <role-hint>java</role-hint>
-      <implementation>org.apache.maven.tools.plugin.extractor.anno.AnnoMojoDescriptorExtractor</implementation>
-    </component>
-    
-  </components>
+        <!--
+        |
+        | AnnoMojoDescriptorExtractor, a MojoDescriptor extractor to read
+        | descriptors from java sources.
+        |
+        -->
+        <component>
+            <role>org.apache.maven.tools.plugin.extractor.MojoDescriptorExtractor</role>
+            <role-hint>java</role-hint>
+            <implementation>org.jfrog.maven.annomojo.extractor.AnnoMojoDescriptorExtractor</implementation>
+        </component>
+
+    </components>
 </component-set>

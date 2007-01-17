@@ -1,4 +1,4 @@
-package org.apache.maven.tools.plugin.extractor.anno;
+package org.jfrog.maven.annomojo.extractor;
 
 import org.apache.maven.artifact.repository.ArtifactRepository;
 
