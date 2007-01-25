@@ -98,47 +98,6 @@
     <profiles>
         <profile>
             <id>juice</id>
-            <properties>
-                <repo-url>http://juice.alphacsp.com/artifactory/</repo-url>
-                <repo-releases>plugin-releases@repo</repo-releases>
-                <repo-snapshots>plugin-snapshots@repo</repo-snapshots>
-            </properties>
-            <repositories>
-                <repository>
-                    <id>central</id>
-                    <name>jade-plugins-dist</name>
-                    <url>${repo-url}${repo-releases}</url>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>snapshots</id>
-                    <name>jade-plugins-snapshots</name>
-                    <url>${repo-url}${repo-snapshots}</url>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>central</id>
-                    <name>jade-plugins-dist</name>
-                    <url>${repo-url}plugin-releases@repo</url>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-                <pluginRepository>
-                    <id>snapshots</id>
-                    <name>jade-plugins-snapshots</name>
-                    <url>${repo-url}plugin-snapshots@repo</url>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
             <distributionManagement>
                 <site>
                     <id>juice-server</id>
