@@ -4,10 +4,14 @@ import com.sun.tools.apt.Main;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
 import org.apache.maven.artifact.factory.ArtifactFactory;
-import org.apache.maven.artifact.factory.DefaultArtifactFactory;
+import org.apache.maven.artifact.metadata.ArtifactMetadataSource;
 import org.apache.maven.artifact.repository.ArtifactRepository;
+import org.apache.maven.artifact.resolver.ArtifactResolutionResult;
 import org.apache.maven.artifact.resolver.ArtifactResolver;
+import org.apache.maven.artifact.versioning.InvalidVersionSpecificationException;
+import org.apache.maven.artifact.versioning.VersionRange;
 import org.apache.maven.model.Dependency;
+import org.apache.maven.model.DependencyManagement;
 import org.apache.maven.plugin.descriptor.InvalidPluginDescriptorException;
 import org.apache.maven.plugin.descriptor.MojoDescriptor;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
@@ -27,8 +31,12 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -142,17 +150,29 @@ public class AnnoMojoDescriptorExtractor
             throw new InvalidPluginDescriptorException(
                     "Failed to get the local repository.", e);
         }
-        DefaultArtifactFactory artifactFactory;
+        ArtifactFactory artifactFactory;
         try {
-            artifactFactory = (DefaultArtifactFactory) container.lookup(ArtifactFactory.ROLE);
+            artifactFactory = (ArtifactFactory) container.lookup(ArtifactFactory.ROLE);
         } catch (ComponentLookupException e) {
             throw new InvalidPluginDescriptorException(
                     "Failed to locate the artifact factory.", e);
         }
+        ArtifactMetadataSource artifactMetadataSource;
+        try {
+            artifactMetadataSource = (ArtifactMetadataSource) container.lookup(ArtifactMetadataSource.ROLE, "maven");
+        } catch (ComponentLookupException e) {
+            throw new InvalidPluginDescriptorException(
+                    "Failed to locate the Artifact Metadata Source.", e);
+        }
+        Set<Artifact> toResolve = new HashSet<Artifact>();
         List<Dependency> dependencies = project.getDependencies();
         for (Dependency dependency : dependencies) {
             String scope = dependency.getScope();
-            if (scope != null && (scope.equals("system") || scope.equals("runtime"))) {
+            // Only compile or provided should be used here. Scope null is compile
+            if (scope != null &&
+                    (scope.equals(Artifact.SCOPE_SYSTEM) ||
+                            scope.equals(Artifact.SCOPE_TEST) ||
+                            scope.equals(Artifact.SCOPE_RUNTIME))) {
                 continue;
             }
             Artifact artifact = artifactFactory.createArtifact(
@@ -161,16 +181,56 @@ public class AnnoMojoDescriptorExtractor
                     dependency.getVersion(),
                     scope,
                     dependency.getType());
-            try {
-                resolver.resolve(artifact, project.getRemoteArtifactRepositories(),
-                        localRepository);
+            toResolve.add(artifact);
+        }
+        Map managedVersions = createManagedVersionMap(project, artifactFactory);
+        try {
+            ArtifactResolutionResult result = resolver.resolveTransitively(
+                    toResolve,
+                    project.getArtifact(),
+                    managedVersions,
+                    localRepository,
+                    project.getRemoteArtifactRepositories(),
+                    artifactMetadataSource);
+            Set<Artifact> artifacts = result.getArtifacts();
+            for (Artifact artifact : artifacts) {
                 File file = artifact.getFile();
                 cp.append(file.getCanonicalPath());
                 cp.append(File.pathSeparator);
-            } catch (Exception e) {
-                throw new InvalidPluginDescriptorException(
-                        "Failed to resolve artifact: " + artifact, e);
             }
+        } catch (Exception e) {
+            throw new InvalidPluginDescriptorException(
+                    "Failed to resolve transitively artifacts: " + e.getMessage(), e);
         }
+    }
+
+    private Map<String, Artifact> createManagedVersionMap(MavenProject project, ArtifactFactory artifactFactory)
+            throws InvalidPluginDescriptorException {
+        Map<String, Artifact> map;
+        DependencyManagement dependencyManagement = project.getDependencyManagement();
+        String projectId = project.getId();
+
+        if (dependencyManagement != null && dependencyManagement.getDependencies() != null) {
+            map = new HashMap<String, Artifact>();
+            for (Iterator i = dependencyManagement.getDependencies().iterator(); i.hasNext();) {
+                Dependency d = (Dependency) i.next();
+
+                try {
+                    VersionRange versionRange = VersionRange.createFromVersionSpec(d.getVersion());
+                    Artifact artifact = artifactFactory.createDependencyArtifact(d.getGroupId(), d.getArtifactId(),
+                            versionRange, d.getType(),
+                            d.getClassifier(), d.getScope(),
+                            d.isOptional());
+                    map.put(d.getManagementKey(), artifact);
+                }
+                catch (InvalidVersionSpecificationException e) {
+                    throw new InvalidPluginDescriptorException("Unable to parse version '" + d.getVersion() +
+                            "' for dependency '" + d.getManagementKey() + "' in project " + projectId + " : " + e.getMessage(), e);
+                }
+            }
+        } else {
+            map = Collections.emptyMap();
+        }
+        return map;
     }
 }
