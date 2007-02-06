@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.jfrog.maven.annomojo</groupId>
         <artifactId>maven-plugin-anno-parent</artifactId>
-        <version>1.2-SNAPSHOT</version>
+        <version>1.2.2</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
