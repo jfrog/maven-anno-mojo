@@ -8,6 +8,7 @@ import org.apache.maven.artifact.metadata.ArtifactMetadataSource;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.resolver.ArtifactResolutionResult;
 import org.apache.maven.artifact.resolver.ArtifactResolver;
+import org.apache.maven.artifact.resolver.filter.ArtifactFilter;
 import org.apache.maven.artifact.versioning.InvalidVersionSpecificationException;
 import org.apache.maven.artifact.versioning.VersionRange;
 import org.apache.maven.model.Dependency;
@@ -164,17 +165,19 @@ public class AnnoMojoDescriptorExtractor
             throw new InvalidPluginDescriptorException(
                     "Failed to locate the Artifact Metadata Source.", e);
         }
+        ArtifactFilter filter = new ArtifactFilter() {
+            public boolean include(Artifact artifact) {
+                String scope = artifact.getScope();
+                return filterFromScope(scope);
+            }
+        };
+
         Set<Artifact> toResolve = new HashSet<Artifact>();
         List<Dependency> dependencies = project.getDependencies();
         for (Dependency dependency : dependencies) {
             String scope = dependency.getScope();
-            // Only compile or provided should be used here. Scope null is compile
-            if (scope != null &&
-                    (scope.equals(Artifact.SCOPE_SYSTEM) ||
-                            scope.equals(Artifact.SCOPE_TEST) ||
-                            scope.equals(Artifact.SCOPE_RUNTIME))) {
+            if (!filterFromScope(scope))
                 continue;
-            }
             Artifact artifact = artifactFactory.createArtifact(
                     dependency.getGroupId(),
                     dependency.getArtifactId(),
@@ -191,7 +194,8 @@ public class AnnoMojoDescriptorExtractor
                     managedVersions,
                     localRepository,
                     project.getRemoteArtifactRepositories(),
-                    artifactMetadataSource);
+                    artifactMetadataSource,
+                    filter);
             Set<Artifact> artifacts = result.getArtifacts();
             for (Artifact artifact : artifacts) {
                 File file = artifact.getFile();
@@ -202,6 +206,17 @@ public class AnnoMojoDescriptorExtractor
             throw new InvalidPluginDescriptorException(
                     "Failed to resolve transitively artifacts: " + e.getMessage(), e);
         }
+    }
+
+    private boolean filterFromScope(String scope) {
+        // Only compile or provided should be used here. Scope null is compile
+        if (scope != null &&
+                (scope.equals(Artifact.SCOPE_SYSTEM) ||
+                        scope.equals(Artifact.SCOPE_TEST) ||
+                        scope.equals(Artifact.SCOPE_RUNTIME))) {
+            return false;
+        }
+        return true;
     }
 
     private Map<String, Artifact> createManagedVersionMap(MavenProject project, ArtifactFactory artifactFactory)
