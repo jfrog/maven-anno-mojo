@@ -66,7 +66,7 @@ public class AnnoMojoDescriptorExtractor
     }
 
     @SuppressWarnings({"unchecked"})
-    public List<MojoDescriptor> execute(MavenProject project, PluginDescriptor descriptor)
+    public List<MojoDescriptor> execute(MavenProject project, PluginDescriptor pluginDescriptor)
             throws InvalidPluginDescriptorException {
         List<String> sourceRoots = project.getCompileSourceRoots();
         Set<String> sourcePathElements = new HashSet<String>();
@@ -121,7 +121,7 @@ public class AnnoMojoDescriptorExtractor
         ArrayList<MojoDescriptor> descriptors = new ArrayList<MojoDescriptor>();
         MojoDescriptorTls.setDescriptors(descriptors);
         try {
-            Main.process(new MojoApf(descriptor), new PrintWriter(System.out), args);
+            Main.process(new MojoApf(pluginDescriptor), new PrintWriter(System.out), args);
         } catch (Throwable t) {
             //TODO: [by yl] This is never caught - apt swallows the exception.
             //Use the TLS to hold thrown exception
