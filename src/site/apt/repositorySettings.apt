@@ -59,6 +59,7 @@ Repository Settings
 +---+
 
 * Using repositories declaration in pom.xml
+
         It is also possible to directly add the repository configuration inside the pom.xml file of the
         maven plugin using mvn-anno-mojo.
         This will generate harcoded url links for all users of the plugin and so it is not recommended.
