@@ -20,7 +20,7 @@ Usage
         <dependency>
             <groupId>org.jfrog.maven.annomojo</groupId>
             <artifactId>maven-plugin-anno</artifactId>
-            <version>1.2-SNAPSHOT</version>
+            <version>1.2.3</version>
         </dependency>
         ...
     </dependencies>
@@ -36,13 +36,13 @@ Usage
                     <dependency>
                         <groupId>org.jfrog.maven.annomojo</groupId>
                         <artifactId>maven-plugin-anno</artifactId>
-                        <version>1.2-SNAPSHOT</version>
+                        <version>1.2.3</version>
                         <scope>runtime</scope>
                     </dependency>
                     <dependency>
                         <groupId>org.jfrog.maven.annomojo</groupId>
                         <artifactId>maven-plugin-tools-anno</artifactId>
-                        <version>1.2-SNAPSHOT</version>
+                        <version>1.2.3</version>
                         <scope>runtime</scope>
                     </dependency>
                 </dependencies>
@@ -62,8 +62,11 @@ Usage
 +---+
 
       <NOTE: This plugin relies on JDK 1.5 and uses the Annotation Processing Tool (APT).
-      It is required to run Maven with JDK 1.5 (set your JAVA_HOME to point to JDK 1.5).>
+      It is required to run Maven with JDK 1.5 (set your JAVA_HOME to point to JDK 1.5 or above).>
       
+      <NOTE: With maven 2.0.5 or above declaring explicitly the 2 dependencies maven-plugin-anno
+       and maven-plugin-tools-anno is not needed. Adding just maven-plugin-tools-anno will work.>
+
 * Using Annotations
 
 ** Class and Field Annotations

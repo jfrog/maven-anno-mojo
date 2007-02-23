@@ -13,5 +13,8 @@
     <artifactId>maven-plugin-anno</artifactId>
 
     <name>AnnoMojo API</name>
+    <description>Maven Anno Mojo module with all the JDK 1.5 annotations needed when writing maven plugin classes (Mojo).
+        Every maven plugins using Anno Mojo should be directly or transitively dependant on this POM.
+    </description>
 
 </project>

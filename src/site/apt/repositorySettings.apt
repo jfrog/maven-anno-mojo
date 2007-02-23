@@ -1,0 +1,91 @@
+ -----
+Repository Settings
+ -----
+Fredreic Simon
+ -----
+22 February 2007
+ -----
+
+Repository Settings
+
+* Using profiles in settings.xml
+
+        In your settings.xml you can configure a profile where the <repositories> and <pluginRepositories>
+        contains something like:
+
++---+
+<profile>
+    <id>jfrog-plugin</id>
+    <repositories>
+        <repository>
+            <id>jfrog-plugins</id>
+            <name>jfrog-plugins-dist</name>
+            <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jfrog-plugins</id>
+            <name>jfrog-plugins-dist</name>
+            <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</profile>
++---+
+
+        Then activate this profile each time your are compiling a maven plugin that is using Maven Anno Mojo.
+        When running maven on a project that uses a mvn-anno-mojo plugin you need a profile like:
+
++---+
+<profile>
+    <id>jfrog-app</id>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jfrog-plugins</id>
+            <name>jfrog-plugins-dist</name>
+            <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</profile>
++---+
+
+* Using repositories declaration in pom.xml
+        It is also possible to directly add the repository configuration inside the pom.xml file of the
+        maven plugin using mvn-anno-mojo.
+        This will generate harcoded url links for all users of the plugin and so it is not recommended.
+        Anyway, just adding:
+
++---+
+<repositories>
+    <repository>
+        <id>jfrog-plugins</id>
+        <name>jfrog-plugins-dist</name>
+        <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <id>jfrog-plugins</id>
+        <name>jfrog-plugins-dist</name>
+        <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </pluginRepository>
+</pluginRepositories>
++---+
+
+        to the pom.xml will enable you to work with Maven Anno Mojo without installing or deploying locally the
+        Maven Anno Mojo modules.

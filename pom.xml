@@ -14,8 +14,8 @@
     </prerequisites>
 
     <name>AnnoMojo Parent</name>
-    <description>Maven2 extention that allows writing annotated Mojos using JDK 1.5 annotations instead of doclet
-        comments.
+    <description>Maven2 maven-plugin-plugin extension that allows writing annotated Mojos using JDK 1.5 annotations
+        instead of doclet comments.
     </description>
     <url>http://www.frog.org/sites/mvn-anno-mojo/${version}</url>
     <inceptionYear>2006</inceptionYear>

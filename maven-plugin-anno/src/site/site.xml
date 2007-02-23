@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<project name="Maven Anno Mojo API">
+    <skin>
+        <groupId>org.jfrog.maven.skins</groupId>
+        <artifactId>jfrog-sf</artifactId>
+        <version>1.0.1</version>
+    </skin>
+    <bannerLeft>
+        <name>jFrog</name>
+        <src>/images/logos/jfrog.png</src>
+        <href>http://www.jfrog.org/</href>
+    </bannerLeft>
+    <bannerRight>
+        <name>Maven Anno Mojo API</name>
+    </bannerRight>
+    <poweredBy>
+        <logo name="SourceForge.net"
+              img="http://sflogo.sourceforge.net/sflogo.php?group_id=166880&amp;type=1"
+              href="http://www.sourceforge.net/projects/mvn-anno-mojo/" />
+        <logo name="Built by Maven"
+              href="http://maven.apache.org/" />
+    </poweredBy>
+    <body>
+        <breadcrumbs>
+            <item href="http://www.jfrog.org/" name="jFrog" />
+            <item href="http://www.jfrog.org/sites/mvn-anno-mojo/1.2.3" name="Anno Mojo 1.2.3" />
+        </breadcrumbs>
+        <links>
+            <item name="Maven 2" href="http://maven.apache.org/maven2/" />
+            <item name="Ant" href="http://ant.apache.org/" />
+            <item name="AlphaCSP" href="http://www.alphacsp.com/" />
+        </links>
+
+        <menu name="Overview">
+            <item name="Introduction" href="../introduction.html" />
+            <item name="Usage" href="../usage.html" />
+            <item name="Repository Settings" href="../repositorySettings.html" />
+            <item name="Annotations API" href="index.html" />
+            <item name="Plugin Extractor" href="../maven-plugin-tools-anno/index.html" />
+        </menu>
+
+        ${reports}
+    </body>
+</project>
