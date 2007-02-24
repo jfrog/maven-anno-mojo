@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jfrog.maven.annomojo</groupId>
     <artifactId>maven-plugin-anno-parent</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2.2</version>
     <packaging>pom</packaging>
 
     <prerequisites>
@@ -14,10 +14,10 @@
     </prerequisites>
 
     <name>AnnoMojo Parent</name>
-    <description>Maven2 maven-plugin-plugin extension that allows writing annotated Mojos using JDK 1.5 annotations
-        instead of doclet comments.
+    <description>Maven2 extention that allows writing annotatd Mojos using JDK 1.5 annotations instead of doclet
+        comments.
     </description>
-    <url>http://www.frog.org/sites/mvn-anno-mojo/${version}</url>
+    <url>http://www.sourceforge.net/projects/mvn-anno-mojo/</url>
     <inceptionYear>2006</inceptionYear>
 
     <licenses>
@@ -112,27 +112,7 @@
 
     <profiles>
         <profile>
-            <id>jfrog-plugin</id>
-            <distributionManagement>
-                <site>
-                    <id>jfrog-server</id>
-                    <name>jfrog-plugins-sites</name>
-                    <url>${sites-root-url}/mvn-anno-mojo/${version}</url>
-                </site>
-                <repository>
-                    <id>jfrog-artifactory</id>
-                    <name>jfrog-plugins-dist</name>
-                    <url>https://www.jfrog.org/artifactory/plugins-releases@repo</url>
-                </repository>
-                <snapshotRepository>
-                    <id>jfrog-artifactory</id>
-                    <name>jfrog-plugins-snapshots</name>
-                    <url>https://www.jfrog.org/artifactory/plugins-snapshots@repo</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>juice-plugin</id>
+            <id>juice</id>
             <distributionManagement>
                 <site>
                     <id>juice-server</id>
@@ -142,37 +122,13 @@
                 <repository>
                     <id>juice-http-server</id>
                     <name>jade-plugins-dist</name>
-                    <url>http://juice.alphacsp.com/artifactory/plugin-releases@repo</url>
+                    <url>${repo-url}${repo-releases}</url>
                 </repository>
                 <snapshotRepository>
                     <id>juice-http-server</id>
                     <name>jade-plugins-snapshots</name>
-                    <url>http://juice.alphacsp.com/artifactory/plugin-snapshots@repo</url>
+                    <url>${repo-url}${repo-snapshots}</url>
                 </snapshotRepository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>acs-plugin-repo</id>
-            <distributionManagement>
-                <repository>
-                    <id>csi-repo</id>
-                    <name>csi-plugins-dist</name>
-                    <url>http://csi-nm-build1-sol:8181/artifactory/plugins-local-repo@repo</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>csm-plugin-repo</id>
-            <distributionManagement>
-                <repository>
-                    <id>csm-repository</id>
-                    <name>CSM Plugin Dist Repository</name>
-                    <url>http://osadeh-lnx/artifactory/plugins-local-repo@repo</url>
-                </repository>
-                <site>
-                    <id>csm-repository</id>
-                    <url>scp://osadeh-lnx/home/build/sites/plugins/</url>
-                </site>
             </distributionManagement>
         </profile>
     </profiles>
