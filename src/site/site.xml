@@ -20,7 +20,7 @@
     <body>
         <breadcrumbs>
             <item href="http://www.jfrog.org/" name="jfrog" />
-            <item href="http://www.jfrog.org/sites/mvn-anno-mojo/1.2.3" name="Anno Mojo 1.2.3" />
+            <item href="http://www.jfrog.org/sites/mvn-anno-mojo/1.2" name="Anno Mojo 1.2" />
         </breadcrumbs>
         <links>
             <item name="Maven 2" href="http://maven.apache.org/maven2/" />

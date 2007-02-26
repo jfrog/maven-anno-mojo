@@ -117,7 +117,7 @@
                 <site>
                     <id>jfrog-server</id>
                     <name>jfrog-plugins-sites</name>
-                    <url>${sites-root-url}/mvn-anno-mojo/${version}</url>
+                    <url>${sites-root-url}/mvn-anno-mojo/1.2</url>
                 </site>
                 <repository>
                     <id>jfrog-artifactory</id>
@@ -128,26 +128,6 @@
                     <id>jfrog-artifactory</id>
                     <name>jfrog-plugins-snapshots</name>
                     <url>https://www.jfrog.org/artifactory/plugins-snapshots@repo</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>juice-plugin</id>
-            <distributionManagement>
-                <site>
-                    <id>juice-server</id>
-                    <name>jade-plugins-sites</name>
-                    <url>scp://juice.alphacsp.com/home/whorehouse/jfrog/sites/mvn-anno-mojo</url>
-                </site>
-                <repository>
-                    <id>juice-http-server</id>
-                    <name>jade-plugins-dist</name>
-                    <url>http://juice.alphacsp.com/artifactory/plugin-releases@repo</url>
-                </repository>
-                <snapshotRepository>
-                    <id>juice-http-server</id>
-                    <name>jade-plugins-snapshots</name>
-                    <url>http://juice.alphacsp.com/artifactory/plugin-snapshots@repo</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
