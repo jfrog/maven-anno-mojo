@@ -96,8 +96,9 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
+                <groupId>org.jfrog.maven.plugins</groupId>
+                <artifactId>jfrog-jxr-plugin</artifactId>
+		<version>2.1-jdk5-3</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -128,26 +129,6 @@
                     <id>jfrog-artifactory</id>
                     <name>jfrog-plugins-snapshots</name>
                     <url>https://www.jfrog.org/artifactory/plugins-snapshots@repo</url>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>juice-plugin</id>
-            <distributionManagement>
-                <site>
-                    <id>juice-server</id>
-                    <name>jade-plugins-sites</name>
-                    <url>scp://juice.alphacsp.com/home/whorehouse/jfrog/sites/mvn-anno-mojo</url>
-                </site>
-                <repository>
-                    <id>juice-http-server</id>
-                    <name>jade-plugins-dist</name>
-                    <url>http://juice.alphacsp.com/artifactory/plugin-releases@repo</url>
-                </repository>
-                <snapshotRepository>
-                    <id>juice-http-server</id>
-                    <name>jade-plugins-snapshots</name>
-                    <url>http://juice.alphacsp.com/artifactory/plugin-snapshots@repo</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
