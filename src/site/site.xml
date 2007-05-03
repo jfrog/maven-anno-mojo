@@ -4,19 +4,8 @@
     <skin>
         <groupId>org.jfrog.maven.skins</groupId>
         <artifactId>jfrog-sf</artifactId>
-        <version>1.0.4</version>
+        <version>1.0.7</version>
     </skin>
-    <bannerLeft>
-        <name>jfrog</name>
-        <src>/images/logos/jfrog.png</src>
-        <href>http://www.jfrog.org/</href>
-    </bannerLeft>
-    <bannerRight>
-        <name>Maven Anno Mojo Parent</name>
-    </bannerRight>
-    <poweredBy>
-        <logo name="166880"/>
-    </poweredBy>
     <body>
         <breadcrumbs>
             <item href="http://www.jfrog.org/" name="jfrog" />

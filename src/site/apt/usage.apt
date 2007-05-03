@@ -8,9 +8,19 @@ Yoav Landman
 
 Usage
 
+
+* Prerequisites
+
+  * JDK 5.0 or later
+
+  * Maven 2.0.5 or later
+
+  * maven-plugin-plugin 2.2 or later
+  
+    
 * POM Settings
 
-        Simply add the following to your POM:
+        Simply add the following to your plugin POM:
 
 +---+
 <project>
@@ -31,7 +41,7 @@ Usage
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <version>2.1</version>
+                <version>2.3</version>
                 <dependencies>
                     <dependency>
                         <groupId>org.jfrog.maven.annomojo</groupId>
@@ -56,10 +66,7 @@ Usage
 +---+
 
       <NOTE: This plugin relies on JDK 1.5 and uses the Annotation Processing Tool (APT).
-      It is required to run Maven with JDK 1.5 (set your JAVA_HOME to point to JDK 1.5).>
-      
-      <NOTE: The current version does not support APT of JDK 1.6. No error will be displayed
-      during execution of the maven-plugin-plugin, but plexus will not be able to load the generated plugin.>
+      It is required to run Maven with JDK 1.5 or later (set your JAVA_HOME to point to the JDK).>
 
 * Using Annotations
 
@@ -112,8 +119,3 @@ public interface MvnInjectable {
     MavenProjectHelper getProjectHelper();
 }
 +---+
-
-** Limitations
-    
-    <Please note that you cannot mix JDK 1.5 style annotations and regular doclet style annotations for the same Mojo.
-    You have to pick either style!>

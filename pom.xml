@@ -20,6 +20,11 @@
     <url>http://www.frog.org/sites/mvn-anno-mojo/${version}</url>
     <inceptionYear>2006</inceptionYear>
 
+    <properties>
+        <sourceforgeId>166880</sourceforgeId>
+        <sourceforgeName>mvn-anno-mojo</sourceforgeName>
+    </properties>
+
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -156,4 +161,16 @@
             </distributionManagement>
         </profile>
     </profiles>
+    <repositories>
+        <repository>
+            <id>jfrog-libs-releases</id>
+            <name>jfrog libraries dist</name>
+            <url>http://www.jfrog.org/artifactory/libs-releases</url>
+        </repository>
+        <repository>
+            <id>jfrog-plugins-releases</id>
+            <name>jfrog plugins dist</name>
+            <url>http://www.jfrog.org/artifactory/plugins-releases</url>
+        </repository>
+    </repositories>
 </project>
