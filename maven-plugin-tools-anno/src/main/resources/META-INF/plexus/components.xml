@@ -9,7 +9,7 @@
         -->
         <component>
             <role>org.apache.maven.tools.plugin.extractor.MojoDescriptorExtractor</role>
-            <role-hint>java</role-hint>
+            <role-hint>javaanno</role-hint>
             <implementation>org.jfrog.maven.annomojo.extractor.AnnoMojoDescriptorExtractor</implementation>
         </component>
 
