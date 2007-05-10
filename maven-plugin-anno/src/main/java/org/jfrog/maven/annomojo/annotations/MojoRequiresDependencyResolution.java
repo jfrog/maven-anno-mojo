@@ -7,8 +7,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
- * . User: yoavl
+ * Flags this Mojo as requiring the dependencies in the specified scope
+ * (or an implied scope) to be resolved before it can execute.
+ * NOTE: Currently supports compile, runtime, and test scopes.
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)

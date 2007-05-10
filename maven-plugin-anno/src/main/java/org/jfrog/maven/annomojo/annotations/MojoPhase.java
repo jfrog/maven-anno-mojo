@@ -7,8 +7,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
- * . User: yoavl
+ * Binds this Mojo to a particular phase of the standard build lifecycle, if specified.
+ * NOTE: This is only required if this Mojo is to participate in the standard build process.
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)

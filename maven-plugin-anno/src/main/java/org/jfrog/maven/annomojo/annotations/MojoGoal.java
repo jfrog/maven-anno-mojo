@@ -7,8 +7,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
- * . User: yoavl
+ * The name for the Mojo that users will reference from the command line
+ * to execute the Mojo directly, or inside a POM in order to provide
+ * Mojo-specific configuration.
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)
