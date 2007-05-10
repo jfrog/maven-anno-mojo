@@ -31,7 +31,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 class MojoApf implements AnnotationProcessorFactory {
-    //Process any set of annotations
+    //Process any annotations from the MojoAnnotation package
     private static final Collection<String> supportedAnnotations
             = Collections.unmodifiableCollection(Arrays.asList(
             MojoAnnotation.class.getPackage().getName() + ".*"));
@@ -86,17 +86,11 @@ class MojoApf implements AnnotationProcessorFactory {
             public void visitClassDeclaration(ClassDeclaration d) {
                 //Merge supper classes and interfaces declarations in top down fashion
                 //(actually we're overriding topmost metadata with bottom-most one)
-                Collection<Modifier> modifiers = d.getModifiers();
-                boolean isAbstract = false;
-                for (Modifier modifier : modifiers) {
-                    if (modifier.equals(Modifier.ABSTRACT)) {
-                        isAbstract = true;
-                        break;
-                    }
-                }
                 if (checkVisited(d)) {
                     return;
                 }
+
+                boolean isAbstract = d.getModifiers().contains(Modifier.ABSTRACT);
                 if (isAbstract && mojoDescriptor == null) {
                     return;
                 }
