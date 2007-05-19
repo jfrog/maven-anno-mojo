@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0           http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0           http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jfrog.maven.annomojo</groupId>
     <artifactId>maven-plugin-anno-parent</artifactId>
@@ -73,6 +74,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -108,11 +110,27 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.0</version>
             </plugin>
         </plugins>
     </reporting>
 
     <profiles>
+        <profile>
+            <id>ext</id>
+            <repositories>
+                <repository>
+                    <id>jfrog-libs-releases</id>
+                    <name>jfrog libraries dist</name>
+                    <url>http://www.jfrog.org/artifactory/libs-releases</url>
+                </repository>
+                <repository>
+                    <id>jfrog-plugins-releases</id>
+                    <name>jfrog plugins dist</name>
+                    <url>http://www.jfrog.org/artifactory/plugins-releases</url>
+                </repository>
+            </repositories>
+        </profile>
         <profile>
             <id>jfrog-plugin</id>
             <distributionManagement>
@@ -158,16 +176,4 @@
             </distributionManagement>
         </profile>
     </profiles>
-    <repositories>
-        <repository>
-            <id>jfrog-libs-releases</id>
-            <name>jfrog libraries dist</name>
-            <url>http://www.jfrog.org/artifactory/libs-releases</url>
-        </repository>
-        <repository>
-            <id>jfrog-plugins-releases</id>
-            <name>jfrog plugins dist</name>
-            <url>http://www.jfrog.org/artifactory/plugins-releases</url>
-        </repository>
-    </repositories>
 </project>
