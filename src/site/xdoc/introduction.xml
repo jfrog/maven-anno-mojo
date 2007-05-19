@@ -20,10 +20,16 @@
 				Enjoy.
 			</p>
 		</section>
+		<section name="Prerequisites">
+			<p>
+				To have maven download the jars needed you can configure a maven repository with the following URL:
+                http://www.jfrog.org/artifactory/plugins-releases
+			</p>
+		</section>
 		<section name="Settings">
 			<p>
 				To have maven download the jars needed you can configure a maven repository with the following URL:
-                http://www.jfrog.org/artifactory/plugins-releases@repo
+                http://www.jfrog.org/artifactory/plugins-releases
 			</p>
 		</section>
 	</body>

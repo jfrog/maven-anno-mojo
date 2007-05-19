@@ -1,7 +1,7 @@
  -----
 Repository Settings
  -----
-Fredreic Simon
+Frederic Simon
  -----
 22 February 2007
  -----
@@ -20,7 +20,7 @@ Repository Settings
         <repository>
             <id>jfrog-plugins</id>
             <name>jfrog-plugins-dist</name>
-            <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+            <url>http://www.jfrog.org/artifactory/plugins-releases</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -30,7 +30,7 @@ Repository Settings
         <pluginRepository>
             <id>jfrog-plugins</id>
             <name>jfrog-plugins-dist</name>
-            <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+            <url>http://www.jfrog.org/artifactory/plugins-releases</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -49,7 +49,7 @@ Repository Settings
         <pluginRepository>
             <id>jfrog-plugins</id>
             <name>jfrog-plugins-dist</name>
-            <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+            <url>http://www.jfrog.org/artifactory/plugins-releases</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -70,7 +70,7 @@ Repository Settings
     <repository>
         <id>jfrog-plugins</id>
         <name>jfrog-plugins-dist</name>
-        <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+        <url>http://www.jfrog.org/artifactory/plugins-releases</url>
         <snapshots>
             <enabled>false</enabled>
         </snapshots>
@@ -80,7 +80,7 @@ Repository Settings
     <pluginRepository>
         <id>jfrog-plugins</id>
         <name>jfrog-plugins-dist</name>
-        <url>http://www.jfrog.org/artifactory/plugins-releases@repo</url>
+        <url>http://www.jfrog.org/artifactory/plugins-releases</url>
         <snapshots>
             <enabled>false</enabled>
         </snapshots>

@@ -4,27 +4,15 @@
     <skin>
         <groupId>org.jfrog.maven.skins</groupId>
         <artifactId>jfrog-sf</artifactId>
-        <version>1.0.7</version>
     </skin>
     <body>
         <breadcrumbs>
-            <item href="http://www.jfrog.org/" name="jfrog" />
-            <item href="http://www.jfrog.org/sites/mvn-anno-mojo/1.2" name="Anno Mojo 1.2" />
+            <item href="index.html" name="Extractor" />
         </breadcrumbs>
-        <links>
-            <item name="Maven 2" href="http://maven.apache.org/maven2/" />
-            <item name="Ant" href="http://ant.apache.org/" />
-            <item name="AlphaCSP" href="http://www.alphacsp.com/" />
-        </links>
 
-        <menu name="Overview">
-            <item name="Introduction" href="../introduction.html" />
-            <item name="Usage" href="../usage.html" />
-            <item name="Repository Settings" href="../repositorySettings.html" />
-            <item name="Annotations API" href="../maven-plugin-anno/index.html" />
-            <item name="Plugin Extractor" href="index.html" />
-        </menu>
+        <menu ref="parent" />
+        <menu ref="modules" />
+        <menu ref="reports" />
 
-        ${reports}
     </body>
 </project>
