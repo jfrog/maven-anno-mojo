@@ -143,36 +143,14 @@
                     <id>jfrog-artifactory</id>
                     <name>jfrog-plugins-dist</name>
                     <url>https://www.jfrog.org/artifactory/plugins-releases</url>
+                    <!--<url>file:///work/tmp/repos</url>-->
                 </repository>
                 <snapshotRepository>
                     <id>jfrog-artifactory</id>
                     <name>jfrog-plugins-snapshots</name>
                     <url>https://www.jfrog.org/artifactory/plugins-snapshots</url>
+                    <!--<url>file:///work/tmp/repos</url>-->
                 </snapshotRepository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>acs-plugin-repo</id>
-            <distributionManagement>
-                <repository>
-                    <id>csi-repo</id>
-                    <name>csi-plugins-dist</name>
-                    <url>http://csi-nm-build1-sol:8181/artifactory/plugins-local-repo@repo</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-        <profile>
-            <id>csm-plugin-repo</id>
-            <distributionManagement>
-                <repository>
-                    <id>csm-repository</id>
-                    <name>CSM Plugin Dist Repository</name>
-                    <url>http://osadeh-lnx/artifactory/plugins-local-repo@repo</url>
-                </repository>
-                <site>
-                    <id>csm-repository</id>
-                    <url>scp://osadeh-lnx/home/build/sites/plugins/</url>
-                </site>
             </distributionManagement>
         </profile>
     </profiles>
