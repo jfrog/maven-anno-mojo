@@ -7,8 +7,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
- * . User: yoavl
+ * Tells Maven that the this plugin's configuration should be inherted from
+ * a parent POM by default, unless the user specifies
+ * <inherit>false</inherit>.
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)

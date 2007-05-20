@@ -7,8 +7,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
- * . User: yoavl
+ * Tells Maven that a valid project instance must be present for this mojo to
+ * execute.
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)

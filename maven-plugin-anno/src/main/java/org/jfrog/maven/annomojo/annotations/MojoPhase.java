@@ -15,5 +15,8 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Inherited
 public @interface MojoPhase {
+    /**
+     * The phase name to bind this mojo
+     */
     String value();
 }

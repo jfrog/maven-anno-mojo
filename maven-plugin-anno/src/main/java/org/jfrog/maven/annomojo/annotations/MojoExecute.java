@@ -19,9 +19,24 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Inherited
 public @interface MojoExecute {
+    /**
+     * The phase to execute in the parallel lifecycle
+     */
     String phase() default "";
 
+    /**
+     * Ensure that this other mojo within the same plugin executes before
+     * this one. It's restricted to this plugin to avoid creating inter-plugin
+     * dependencies.
+     */
     String goal() default "";
 
+    /**
+     * This is optionally used in conjunction with the phase element,
+     * and specifies a custom life-cycle overlay that should be added to the
+     * cloned life cycle before the specified phase is executed. This is
+     * useful to inject specialized behavior in cases where the main life
+     * cycle should remain unchanged.
+     */
     String lifecycle() default "";
 }

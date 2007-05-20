@@ -7,8 +7,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
- * . User: yoavl
+ * Some mojos cannot execute if they don't have access to a network
+ * connection. If Maven is operating in offline mode, such mojos will
+ * cause the build to fail. This flag controls whether the mojo requires
+ * Maven to be online.
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)

@@ -7,8 +7,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *
- * . User: yoavl
+ * Tells Maven that this mojo can ONLY be invoked directly, via the
+ * command line.
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)
