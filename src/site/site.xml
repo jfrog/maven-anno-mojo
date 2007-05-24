@@ -4,30 +4,30 @@
     <skin>
         <groupId>org.jfrog.maven.skins</groupId>
         <artifactId>jfrog-sf</artifactId>
-        <version>1.0.9</version>
+        <version>1.0.10</version>
     </skin>
     <bannerLeft>
         <name>jfrog</name>
-         <src>http://www.jfrog.org/images/logos/jfrog.png</src>
+        <src>http://www.jfrog.org/images/logos/jfrog.png</src>
         <href>http://www.jfrog.org</href>
     </bannerLeft>
     <body>
         <breadcrumbs>
-            <item href="http://www.jfrog.org/" name="jfrog" />
-            <item href="index.html" name="Anno Mojo 1.3" />
+            <item href="http://www.jfrog.org/" name="jfrog"/>
+            <item href="index.html" name="Anno Mojo 1.3"/>
         </breadcrumbs>
         <links>
             <item name="JIRA" href="http://www.jfrog.org/jira/browse/ANMJ"/>
         </links>
 
         <menu name="Overview">
-            <item name="Introduction" href="introduction.html" />
-            <item name="Usage" href="usage.html" />
-            <item name="Repository Settings" href="repositorySettings.html" />
+            <item name="Introduction" href="introduction.html"/>
+            <item name="Usage" href="usage.html"/>
+            <item name="Repository Settings" href="repositorySettings.html"/>
         </menu>
 
         <menu ref="modules"/>
 
-        <menu ref="reports" />
+        <menu ref="reports"/>
     </body>
 </project>
