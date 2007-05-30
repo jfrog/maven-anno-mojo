@@ -1,13 +1,9 @@
 package org.jfrog.maven.annomojo.annotations;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
- * A parameter the plugin is expecting. 
+ * A parameter the plugin is expecting.
  */
 @MojoAnnotation
 @Retention(RetentionPolicy.RUNTIME)
@@ -17,10 +13,15 @@ public @interface MojoParameter {
     /**
      * The description of this parameter's use inside the Mojo.
      * Using the toolset, this is detected as the Javadoc description
-     * for the field. 
+     * for the field.
      * NOTE: While this is not a required part of the parameter specification,
      * it SHOULD be provided to enable future tool support for browsing, etc.
      * and for clarity.
+     * Every child classes inheriting this parameter via jar dependencies,
+     * will not see the description if it is not written in this field but in
+     * the javadoc.
+     *
+     * @return the textual description of the plugin-mojo parameter
      */
     String description() default "";
 
@@ -30,6 +31,8 @@ public @interface MojoParameter {
      * Whether this parameter is required for the Mojo to function. This is
      * used to validate the configuration for a Mojo before it is injected,
      * and before the Mojo is executed from some half-state.
+     *
+     * @return true if the parameter is mandatory
      */
     boolean required() default false;
 
@@ -43,6 +46,8 @@ public @interface MojoParameter {
      * for finalName directly in the plugin configuration section. It is also
      * useful to ensure that - for example - a List-typed parameter which
      * expects items of type Artifact doesn't get a List full of Strings.
+     *
+     * @return true if the parameter cannot be used in pom configuration
      */
     boolean readonly() default false;
 
@@ -50,6 +55,8 @@ public @interface MojoParameter {
      * Marks a parameter as deprecated. The rules on deprecation are the same
      * as normal Java with language elements. This will trigger a warning when
      * a user tries to configure a parameter marked as deprecated.
+     *
+     * @return true if the this parameter should not be used anymore
      */
     String deprecated() default "";
 
@@ -58,6 +65,8 @@ public @interface MojoParameter {
      * the POM. This is primarily useful to improve user-friendliness, where
      * Mojo field names are not intuitive to the user or are otherwise not
      * conducive to configuration via the POM.
+     *
+     * @return the xml alias tag name usable in pom files
      */
     String alias() default "";
 
@@ -74,6 +83,8 @@ public @interface MojoParameter {
 
     /**
      * The default value is used when the expression evaluates to null.
+     *
+     * @return the xml alias tag name usable in pom files
      */
     String defaultValue() default "";
 }

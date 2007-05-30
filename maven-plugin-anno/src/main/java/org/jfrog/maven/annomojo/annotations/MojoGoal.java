@@ -1,10 +1,6 @@
 package org.jfrog.maven.annomojo.annotations;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * The name for the Mojo that users will reference from the command line
@@ -16,5 +12,11 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Inherited
 public @interface MojoGoal {
+    /**
+     * The goal name that can be used directly from maven command line,
+     * or in POM files with plugin execution, or in lifecycle declaration.
+     *
+     * @return the goal name
+     */
     String value();
 }

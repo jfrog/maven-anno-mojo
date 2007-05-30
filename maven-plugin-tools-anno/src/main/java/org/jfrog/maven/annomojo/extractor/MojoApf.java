@@ -3,32 +3,16 @@ package org.jfrog.maven.annomojo.extractor;
 import com.sun.mirror.apt.AnnotationProcessor;
 import com.sun.mirror.apt.AnnotationProcessorEnvironment;
 import com.sun.mirror.apt.AnnotationProcessorFactory;
-import com.sun.mirror.declaration.AnnotationTypeDeclaration;
-import com.sun.mirror.declaration.ClassDeclaration;
-import com.sun.mirror.declaration.Declaration;
-import com.sun.mirror.declaration.FieldDeclaration;
-import com.sun.mirror.declaration.InterfaceDeclaration;
-import com.sun.mirror.declaration.MemberDeclaration;
-import com.sun.mirror.declaration.MethodDeclaration;
-import com.sun.mirror.declaration.Modifier;
-import com.sun.mirror.declaration.TypeDeclaration;
+import com.sun.mirror.declaration.*;
 import com.sun.mirror.type.ClassType;
 import com.sun.mirror.type.InterfaceType;
 import com.sun.mirror.util.DeclarationVisitors;
 import com.sun.mirror.util.SimpleDeclarationVisitor;
-import org.apache.maven.plugin.descriptor.DuplicateParameterException;
-import org.apache.maven.plugin.descriptor.MojoDescriptor;
-import org.apache.maven.plugin.descriptor.Parameter;
-import org.apache.maven.plugin.descriptor.PluginDescriptor;
-import org.apache.maven.plugin.descriptor.Requirement;
+import org.apache.maven.plugin.descriptor.*;
 import org.codehaus.plexus.util.StringUtils;
 import org.jfrog.maven.annomojo.annotations.*;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 class MojoApf implements AnnotationProcessorFactory {
     //Process any annotations from the MojoAnnotation package
@@ -262,15 +246,13 @@ class MojoApf implements AnnotationProcessorFactory {
                 MojoRequiresProject requiresProject = d.getAnnotation(MojoRequiresProject.class);
                 if (requiresProject != null) {
                     mojoDescriptor.setProjectRequired(requiresProject.value());
-                } else {
-                    mojoDescriptor.setProjectRequired(mojoDescriptor.isProjectRequired());
                 }
                 // ----------------------------------------------------------------------
                 // Aggregator flag
                 // ----------------------------------------------------------------------
                 MojoAggregator aggregator = d.getAnnotation(MojoAggregator.class);
                 if (aggregator != null) {
-                    mojoDescriptor.setAggregator(true);
+                    mojoDescriptor.setAggregator(aggregator.value());
                 }
                 // ----------------------------------------------------------------------
                 // requiresDirectInvocation flag
@@ -278,18 +260,14 @@ class MojoApf implements AnnotationProcessorFactory {
                 MojoRequiresDirectInvocation requiresDirectInvocation =
                         d.getAnnotation(MojoRequiresDirectInvocation.class);
                 if (requiresDirectInvocation != null) {
-                    mojoDescriptor.setDirectInvocationOnly(true);
-                } else {
-                    mojoDescriptor.setDirectInvocationOnly(mojoDescriptor.isDirectInvocationOnly());
+                    mojoDescriptor.setDirectInvocationOnly(requiresDirectInvocation.value());
                 }
                 // ----------------------------------------------------------------------
                 // Online flag
                 // ----------------------------------------------------------------------
                 MojoRequiresOnline requiresOnline = d.getAnnotation(MojoRequiresOnline.class);
                 if (requiresOnline != null) {
-                    mojoDescriptor.setOnlineRequired(true);
-                } else {
-                    mojoDescriptor.setOnlineRequired(mojoDescriptor.isOnlineRequired());
+                    mojoDescriptor.setOnlineRequired(requiresOnline.value());
                 }
                 // ----------------------------------------------------------------------
                 // inheritByDefault flag
@@ -297,9 +275,7 @@ class MojoApf implements AnnotationProcessorFactory {
                 MojoInheritedByDefault inheritedByDefault =
                         d.getAnnotation(MojoInheritedByDefault.class);
                 if (inheritedByDefault != null) {
-                    mojoDescriptor.setInheritedByDefault(true);
-                } else {
-                    mojoDescriptor.setInheritedByDefault(mojoDescriptor.isInheritedByDefault());
+                    mojoDescriptor.setInheritedByDefault(inheritedByDefault.value());
                 }
             }
 
