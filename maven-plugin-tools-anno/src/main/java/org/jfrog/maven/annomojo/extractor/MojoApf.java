@@ -341,6 +341,11 @@ class MojoApf implements AnnotationProcessorFactory {
                     }
                 }
                 try {
+                    List params = mojoDescriptor.getParameters();
+                    if (params != null && params.contains(pd)) {
+                        // remove the supercalss param declaration
+                        params.remove(pd);
+                    }
                     mojoDescriptor.addParameter(pd);
                 } catch (DuplicateParameterException e) {
                     throw new IllegalArgumentException(
