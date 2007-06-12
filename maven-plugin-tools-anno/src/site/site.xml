@@ -4,6 +4,7 @@
     <skin>
         <groupId>org.jfrog.maven.skins</groupId>
         <artifactId>jfrog-sf</artifactId>
+        <version>1.0.11</version>
     </skin>
     <body>
         <breadcrumbs>

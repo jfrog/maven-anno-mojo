@@ -9,13 +9,15 @@
 	<body>
 		<section name="Introduction">
 			<p>
-				This is a Maven2 extention that allows writing Annotatd Plug-in Mojos using JDK 1.5+ annotations.  
+				This is a Maven2 extention that allows writing Annotated Plug-in Mojos using JDK 1.5+ annotations.
 				This has a couple of benefits over using JavaDoc-style annotations:
-
-				First, you will get compile-time checks for your plugin metadata.
-				Second, you can use annotations on interface getter methods instead of field annotations,
-				which allows for greater flexibility in your plugin object model.
-				Finally, since JDK 1.5 annotations are supported in most IDEs, you will benefit from code-completion and syntactic checks.
+                <ul>
+				<li>First, you will get compile-time checks for your plugin metadata.</li>
+				<li>Second, you can use annotations on interface getter methods instead of field annotations,
+				which allows for greater flexibility in your plugin object model.</li>
+				<li>Finally, since JDK 1.5 annotations are supported in most IDEs,
+                    you will benefit from code-completion and syntactic checks.</li>
+                </ul>
 
 				Enjoy.
 			</p>
