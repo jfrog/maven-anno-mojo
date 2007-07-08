@@ -30,7 +30,7 @@ public class AnnoMojoDescriptorExtractorTest extends TestCase {
         PluginDescriptor pluginDescriptor = new PluginDescriptor();
         pluginDescriptor.setGoalPrefix("test");
         List results = extractor.execute(project, pluginDescriptor);
-        assertEquals(2, results.size());
+        assertEquals(3, results.size());
     }
 
     private File fileOf(String classpathResource) {
