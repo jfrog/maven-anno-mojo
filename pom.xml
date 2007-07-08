@@ -35,6 +35,24 @@
         <url>http://www.jfrog.org/jira/browse/ANMJ</url>
     </issueManagement>
 
+    <mailingLists>
+        <mailingList>
+            <name>Maven Anno Mojo Users List</name>
+            <subscribe>http://lists.sourceforge.net/mailman/listinfo/mvn-anno-mojo-users</subscribe>
+            <archive>http://sourceforge.net/mailarchive/forum.php?forum_name=mvn-anno-mojo-users</archive>
+        </mailingList>
+        <mailingList>
+            <name>Jade Plugins Users List</name>
+            <subscribe>https://lists.sourceforge.net/mailman/listinfo/jade-plugins-users</subscribe>
+            <archive>http://www.nabble.com/Jade-Plugins-Users-f23879.html</archive>
+        </mailingList>
+        <mailingList>
+            <name>Jade Plugins Developers List</name>
+            <subscribe>https://lists.sourceforge.net/mailman/listinfo/jade-plugins-devs</subscribe>
+            <archive>http://sourceforge.net/mailarchive/forum.php?forum_name=jade-plugins-devs</archive>
+        </mailingList>
+    </mailingLists>
+
     <scm>
         <connection>scm:svn:http://mvn-anno-mojo.svn.sourceforge.net/svnroot/mvn-anno-mojo/trunk
         </connection>

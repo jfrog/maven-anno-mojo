@@ -13,12 +13,13 @@
         </breadcrumbs>
         <links>
             <item name="JIRA" href="http://www.jfrog.org/jira/browse/ANMJ"/>
+            <item name="Wiki" href="http://www.jfrog.org/wiki/index.php/MvnAnnoMojo:Main"/>
         </links>
 
         <menu name="Overview">
-            <item name="Introduction" href="introduction.html"/>
-            <item name="Usage" href="usage.html"/>
-            <item name="Repository Settings" href="repositorySettings.html"/>
+            <item name="Introduction" href="index.html"/>
+            <!--<item name="Usage" href="usage.html"/>-->
+            <!--<item name="Repository Settings" href="repositorySettings.html"/>-->
         </menu>
 
         <menu ref="modules"/>
