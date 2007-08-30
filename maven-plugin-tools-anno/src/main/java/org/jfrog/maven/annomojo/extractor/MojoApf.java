@@ -14,6 +14,13 @@ import org.jfrog.maven.annomojo.annotations.*;
 
 import java.util.*;
 
+/**
+ * APT AnnotationProcessorFactory
+ *
+ * @author Yoav Landman (ylandman at gmail.com)
+ * @author Frederic Simon (frederic.simon at gmail.com)
+ * @author Yossi Shaul (yossish at sf.net)
+ */
 class MojoApf implements AnnotationProcessorFactory {
     //Process any annotations from the MojoAnnotation package
     private static final Collection<String> supportedAnnotations

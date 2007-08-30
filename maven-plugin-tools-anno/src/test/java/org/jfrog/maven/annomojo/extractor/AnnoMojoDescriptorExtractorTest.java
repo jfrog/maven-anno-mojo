@@ -9,6 +9,10 @@ import java.io.File;
 import java.net.URL;
 import java.util.List;
 
+/**
+ * @author Yoav Landman (ylandman at gmail.com)
+ * @author Frederic Simon (frederic.simon at gmail.com)
+ */
 public class AnnoMojoDescriptorExtractorTest extends TestCase {
 
     public void testCreateMojoDescriptor() throws Exception {

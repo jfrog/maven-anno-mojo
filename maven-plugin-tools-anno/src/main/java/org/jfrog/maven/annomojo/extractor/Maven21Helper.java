@@ -5,8 +5,7 @@ import org.codehaus.plexus.PlexusContainer;
 import org.codehaus.plexus.component.repository.exception.ComponentLookupException;
 
 /**
- * Created by IntelliJ IDEA.
- * User: yoavl
+ * @author Yoav Landman (ylandman at gmail.com)
  */
 public class Maven21Helper implements MavenHelper {
 

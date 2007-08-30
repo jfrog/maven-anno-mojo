@@ -5,8 +5,7 @@ import org.apache.maven.plugin.descriptor.MojoDescriptor;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: yoavl
+ * @author Yoav Landman (ylandman at gmail.com)
  */
 class MojoDescriptorTls {
 

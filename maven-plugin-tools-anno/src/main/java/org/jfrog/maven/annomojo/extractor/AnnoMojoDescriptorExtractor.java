@@ -42,6 +42,9 @@ import java.util.Set;
 
 /**
  * Java 1.5+ Annotation-based MojoDescriptorExtractor
+ *
+ * @author Yoav Landman (ylandman at gmail.com)
+ * @author Frederic Simon (frederic.simon at gmail.com)
  */
 public class AnnoMojoDescriptorExtractor
         extends AbstractLogEnabled implements MojoDescriptorExtractor, Contextualizable {
