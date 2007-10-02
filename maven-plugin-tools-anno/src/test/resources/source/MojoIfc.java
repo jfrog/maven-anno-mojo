@@ -1,6 +1,6 @@
 package source;
 
-import org.jfrog.maven.annomojo.annotations.MojoParameter;
+import org.apache.maven.tools.plugin.extractor.annomojo.annotations.MojoParameter;
 
 import java.io.File;
 

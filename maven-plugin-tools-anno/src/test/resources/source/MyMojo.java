@@ -3,10 +3,10 @@ package source;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.project.MavenProject;
-import org.jfrog.maven.annomojo.annotations.MojoExecute;
-import org.jfrog.maven.annomojo.annotations.MojoGoal;
-import org.jfrog.maven.annomojo.annotations.MojoParameter;
-import org.jfrog.maven.annomojo.annotations.MojoPhase;
+import org.apache.maven.tools.plugin.extractor.annomojo.annotations.MojoExecute;
+import org.apache.maven.tools.plugin.extractor.annomojo.annotations.MojoGoal;
+import org.apache.maven.tools.plugin.extractor.annomojo.annotations.MojoParameter;
+import org.apache.maven.tools.plugin.extractor.annomojo.annotations.MojoPhase;
 
 import java.util.List;
 

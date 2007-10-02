@@ -1,7 +1,7 @@
 package source;
 
 import org.apache.maven.project.MavenProjectHelper;
-import org.jfrog.maven.annomojo.annotations.MojoComponent;
+import org.apache.maven.tools.plugin.extractor.annomojo.annotations.MojoComponent;
 
 /**
  * User: freds

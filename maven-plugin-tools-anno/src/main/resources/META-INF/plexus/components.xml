@@ -10,7 +10,7 @@
         <component>
             <role>org.apache.maven.tools.plugin.extractor.MojoDescriptorExtractor</role>
             <role-hint>javaanno</role-hint>
-            <implementation>org.jfrog.maven.annomojo.extractor.AnnoMojoDescriptorExtractor</implementation>
+            <implementation>org.apache.maven.tools.plugin.extractor.annomojo.AnnoMojoDescriptorExtractor</implementation>
         </component>
 
     </components>
