@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>maven-plugin-tools-anno</artifactId>
 
-    <name>AnnoMojo Extractor</name>
+    <name>Maven Plugin Tools for Annotated Java</name>
     <description>Maven Anno Mojo module conatining the implementation of the MojoDescriptorExtractor used
         by the plugin maven-plugin-plugin. This POM override the standard java MojoDescriptorExtractor to avoid
         qdox parsing error. Adding this module as a dependencies to maven-plugin-plugin will stop the xdoclet

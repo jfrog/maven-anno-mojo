@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>maven-plugin-anno-parent</artifactId>
     <packaging>pom</packaging>
-    <name>AnnoMojo Parent</name>
+    <name>Maven Plugin Tools for Annotated Java Parent</name>
     <description>
         Maven2 maven-plugin-plugin extension that allows writing annotated Mojos
         using JDK 1.5 annotations instead of doclet comments.
