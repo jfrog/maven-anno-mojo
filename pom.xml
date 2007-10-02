@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+      <artifactId>maven-plugin-tools</artifactId>
+      <groupId>org.apache.maven</groupId>
+      <version>2.2-SNAPSHOT</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jfrog.maven.annomojo</groupId>
     <artifactId>maven-plugin-anno-parent</artifactId>
-    <version>1.3-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>AnnoMojo Parent</name>
+    <description>
+        Maven2 maven-plugin-plugin extension that allows writing annotated Mojos
+        using JDK 1.5 annotations instead of doclet comments.
+    </description>
+    <url>http://www.frog.org/sites/mvn-anno-mojo/1.3/</url>
+    <inceptionYear>2006</inceptionYear>
 
     <prerequisites>
         <maven>2.0.5</maven>
     </prerequisites>
-
-    <name>AnnoMojo Parent</name>
-    <description>Maven2 maven-plugin-plugin extension that allows writing annotated Mojos using JDK 1.5 annotations
-        instead of doclet comments.
-    </description>
-    <url>http://www.frog.org/sites/mvn-anno-mojo/1.3/</url>
-    <inceptionYear>2006</inceptionYear>
 
     <properties>
         <sourceforgeId>166880</sourceforgeId>
@@ -61,6 +65,31 @@
         <url>http://svn.sourceforge.net/viewvc/mvn-anno-mojo/trunk</url>
     </scm>
 
+
+    <developers>
+        <developer>
+            <name>Yoav Landman</name>
+            <email>ylandman@gmail.com</email>
+            <organization>AlphaCSP</organization>
+            <organizationUrl>http://www.alphacsp.com</organizationUrl>
+            <timezone>GMT+2</timezone>
+        </developer>
+        <developer>
+            <name>Frederic Simon</name>
+            <email>freds@jfrog.org</email>
+            <organization>AlphaCSP</organization>
+            <organizationUrl>http://www.alphacsp.com</organizationUrl>
+            <timezone>GMT+2</timezone>
+        </developer>
+        <developer>
+            <name>Yossi Shaul</name>
+            <email>yossis@alphacsp.com</email>
+            <organization>AlphaCSP</organization>
+            <organizationUrl>http://www.alphacsp.com</organizationUrl>
+            <timezone>GMT+2</timezone>
+        </developer>
+    </developers>
+
     <modules>
         <module>maven-plugin-anno</module>
         <module>maven-plugin-tools-anno</module>
@@ -69,9 +98,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.jfrog.maven.annomojo</groupId>
+                <groupId>org.apache.maven</groupId>
                 <artifactId>maven-plugin-anno</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
