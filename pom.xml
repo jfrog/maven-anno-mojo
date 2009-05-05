@@ -71,7 +71,7 @@
             <dependency>
                 <groupId>org.jfrog.maven.annomojo</groupId>
                 <artifactId>maven-plugin-anno</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -137,11 +137,6 @@
         <profile>
             <id>ext</id>
             <repositories>
-                <repository>
-                    <id>jfrog-libs-releases</id>
-                    <name>jfrog libraries dist</name>
-                    <url>http://www.jfrog.org/artifactory/libs-releases</url>
-                </repository>
                 <repository>
                     <id>jfrog-plugins-releases</id>
                     <name>jfrog plugins dist</name>

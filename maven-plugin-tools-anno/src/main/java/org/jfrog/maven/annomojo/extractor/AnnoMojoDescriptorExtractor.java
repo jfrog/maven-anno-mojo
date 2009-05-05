@@ -24,6 +24,7 @@ import org.codehaus.plexus.component.repository.exception.ComponentLookupExcepti
 import org.codehaus.plexus.context.Context;
 import org.codehaus.plexus.context.ContextException;
 import org.codehaus.plexus.logging.AbstractLogEnabled;
+import org.codehaus.plexus.logging.Logger;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Contextualizable;
 import org.codehaus.plexus.util.FileUtils;
 
@@ -35,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -54,16 +54,11 @@ public class AnnoMojoDescriptorExtractor
     private MavenHelper helper;
 
     public void contextualize(Context context) throws ContextException {
+        // System out is swallowed in here becareful
+        // This method is called and always 2.0 even in 2.1 environment
         container = (PlexusContainer) context.get(PlexusConstants.PLEXUS_KEY);
-        //Decide which helper to use, depending on the Maven version
         try {
-            try {
-                Thread.currentThread().getContextClassLoader().loadClass(
-                        "org.apache.maven.MavenTools");
-                helper = new Maven21Helper(container);
-            } catch (ClassNotFoundException e) {
-                helper = new Maven20Helper(container);
-            }
+            helper = new Maven20Helper(container);
         } catch (ComponentLookupException e) {
             throw new ContextException("Failed to configure the extractor Maven helper.", e);
         }
@@ -101,8 +96,7 @@ public class AnnoMojoDescriptorExtractor
                     "Failed to get compileClasspathElements.", e);
         }
         for (String ccpe : compileClasspathElements) {
-            cp.append(ccpe);
-            cp.append(File.pathSeparator);
+            appendToPath(cp, ccpe);
         }
         //Resolve dependencies and add them to the classpath
         resolveDependencies(project, cp);
@@ -116,10 +110,11 @@ public class AnnoMojoDescriptorExtractor
                 throw new InvalidPluginDescriptorException(
                         "Failed to get classpath files from " + url, e);
             }
-            cp.append(path);
-            cp.append(File.pathSeparator);
+            appendToPath(cp, path);
         }
-        argsList.add(cp.toString());
+        String classpath = cp.toString();
+        debug("cl=" + classpath);
+        argsList.add(classpath);
         argsList.addAll(sourcePathElements);
         String[] args = argsList.toArray(new String[argsList.size()]);
         ArrayList<MojoDescriptor> descriptors = new ArrayList<MojoDescriptor>();
@@ -135,9 +130,26 @@ public class AnnoMojoDescriptorExtractor
         return MojoDescriptorTls.getDescriptors();
     }
 
+    private void debug(String msg) {
+        Logger log = getLogger();
+        if (log != null) {
+            log.debug(msg);
+        } else {
+            System.out.println(msg);
+        }
+    }
+
+    private void appendToPath(StringBuilder cp, String path) {
+        if (path != null && path.length() > 0) {
+            cp.append(path);
+            cp.append(File.pathSeparator);
+        }
+    }
+
     @SuppressWarnings({"unchecked"})
     private void resolveDependencies(MavenProject project, StringBuilder cp) throws InvalidPluginDescriptorException {
         if (container == null) {
+            // Not executed from maven
             return;
         }
         ArtifactResolver resolver;
@@ -179,8 +191,9 @@ public class AnnoMojoDescriptorExtractor
         List<Dependency> dependencies = project.getDependencies();
         for (Dependency dependency : dependencies) {
             String scope = dependency.getScope();
-            if (!filterFromScope(scope))
+            if (!filterFromScope(scope)) {
                 continue;
+            }
             Artifact artifact = artifactFactory.createArtifact(
                     dependency.getGroupId(),
                     dependency.getArtifactId(),
@@ -202,8 +215,7 @@ public class AnnoMojoDescriptorExtractor
             Set<Artifact> artifacts = result.getArtifacts();
             for (Artifact artifact : artifacts) {
                 File file = artifact.getFile();
-                cp.append(file.getCanonicalPath());
-                cp.append(File.pathSeparator);
+                appendToPath(cp, file.getCanonicalPath());
             }
         } catch (Exception e) {
             throw new InvalidPluginDescriptorException(
@@ -230,9 +242,8 @@ public class AnnoMojoDescriptorExtractor
 
         if (dependencyManagement != null && dependencyManagement.getDependencies() != null) {
             map = new HashMap<String, Artifact>();
-            for (Iterator i = dependencyManagement.getDependencies().iterator(); i.hasNext();) {
-                Dependency d = (Dependency) i.next();
-
+            //noinspection unchecked
+            for (Dependency d : (List<Dependency>) dependencyManagement.getDependencies()) {
                 try {
                     VersionRange versionRange = VersionRange.createFromVersionSpec(d.getVersion());
                     Artifact artifact = artifactFactory.createDependencyArtifact(d.getGroupId(), d.getArtifactId(),
@@ -243,7 +254,8 @@ public class AnnoMojoDescriptorExtractor
                 }
                 catch (InvalidVersionSpecificationException e) {
                     throw new InvalidPluginDescriptorException("Unable to parse version '" + d.getVersion() +
-                            "' for dependency '" + d.getManagementKey() + "' in project " + projectId + " : " + e.getMessage(), e);
+                            "' for dependency '" + d.getManagementKey() + "' in project " + projectId + " : " +
+                            e.getMessage(), e);
                 }
             }
         } else {
