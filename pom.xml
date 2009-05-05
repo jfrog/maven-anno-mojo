@@ -155,13 +155,13 @@
                 <repository>
                     <id>jfrog-artifactory</id>
                     <name>jfrog-plugins-dist</name>
-                    <url>https://www.jfrog.org/artifactory/plugins-releases</url>
+                    <url>https://www.jfrog.org/artifactory/plugins-releases-local</url>
                     <!--<url>file:///work/tmp/repos</url>-->
                 </repository>
                 <snapshotRepository>
                     <id>jfrog-artifactory</id>
                     <name>jfrog-plugins-snapshots</name>
-                    <url>https://www.jfrog.org/artifactory/plugins-snapshots</url>
+                    <url>https://www.jfrog.org/artifactory/plugins-snapshots-local</url>
                     <!--<url>file:///work/tmp/repos</url>-->
                 </snapshotRepository>
             </distributionManagement>
