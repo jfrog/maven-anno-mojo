@@ -150,18 +150,18 @@
                 <site>
                     <id>jfrog-server</id>
                     <name>jfrog-plugins-sites</name>
-                    <url>${sites-root-url}/mvn-anno-mojo/1.3</url>
+                    <url>${jfrog-sites-root-url}/mvn-anno-mojo/1.3</url>
                 </site>
                 <repository>
                     <id>jfrog-artifactory</id>
                     <name>jfrog-plugins-dist</name>
-                    <url>https://www.jfrog.org/artifactory/plugins-releases-local</url>
+                    <url>http://repo.jfrog.org/artifactory/plugins-releases-local</url>
                     <!--<url>file:///work/tmp/repos</url>-->
                 </repository>
                 <snapshotRepository>
                     <id>jfrog-artifactory</id>
                     <name>jfrog-plugins-snapshots</name>
-                    <url>https://www.jfrog.org/artifactory/plugins-snapshots-local</url>
+                    <url>http://repo.jfrog.org/artifactory/plugins-snapshots-local</url>
                     <!--<url>file:///work/tmp/repos</url>-->
                 </snapshotRepository>
             </distributionManagement>
