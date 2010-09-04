@@ -19,7 +19,6 @@ public class AnnoMojoDescriptorExtractorTest extends TestCase {
         AnnoMojoDescriptorExtractor extractor = new AnnoMojoDescriptorExtractor();
 
         File sourceFile = fileOf("dir-flag.txt");
-        System.out.println("found source file: " + sourceFile);
 
         File dir = sourceFile.getParentFile();
 
