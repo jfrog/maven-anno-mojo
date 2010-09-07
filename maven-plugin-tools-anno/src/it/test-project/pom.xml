@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>maven.training</groupId>
+    <artifactId>test-proj</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>test-proj</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jfrog.training</groupId>
+                <artifactId>maven-sysinfo-plugin</artifactId>
+                <configuration>
+                    <properties>
+                        <property>java.vm.version</property>
+                        <property>user.dir</property>
+                    </properties>
+                </configuration>
+                <executions>
+                    <execution>
+                        <!-- default phase is validate -->
+                        <goals>
+                            <goal>sysinfoanno</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

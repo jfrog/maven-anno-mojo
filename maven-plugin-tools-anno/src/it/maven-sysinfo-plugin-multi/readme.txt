@@ -1,0 +1,1 @@
+Example of a plugin that has both anno-mojo and doclets-mojo
