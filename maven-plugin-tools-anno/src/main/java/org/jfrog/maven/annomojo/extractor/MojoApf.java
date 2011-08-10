@@ -419,8 +419,10 @@ class MojoApf implements AnnotationProcessorFactory {
             }
 
             private boolean shouldProcessClass(ClassType superclass) {
-                return superclass != null && (!superclass.getDeclaration().getQualifiedName()
-                        .equals("java.lang.Object"));
+                return superclass != null &&
+                        superclass.getDeclaration() != null &&
+                        superclass.getDeclaration().getQualifiedName() != null &&
+                        !superclass.getDeclaration().getQualifiedName().equals("java.lang.Object");
             }
 
             private boolean checkVisited(Declaration d) {
