@@ -331,6 +331,13 @@ class MojoApf implements AnnotationProcessorFactory {
                 if (since != null) {
                     mojoDescriptor.setSince(since.value());
                 }
+                // ----------------------------------------------------------------------
+                // Since flag
+                // ----------------------------------------------------------------------
+                MojoThreadSafe threadSafe = d.getAnnotation(MojoThreadSafe.class);
+                if (threadSafe != null) {
+                    mojoDescriptor.setThreadSafe(threadSafe.value());
+                }
             }
 
             private void processPropertyMetadata(
