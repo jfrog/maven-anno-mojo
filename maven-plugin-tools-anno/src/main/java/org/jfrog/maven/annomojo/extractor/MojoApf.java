@@ -37,6 +37,7 @@ import org.apache.maven.plugin.descriptor.MojoDescriptor;
 import org.apache.maven.plugin.descriptor.Parameter;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugin.descriptor.Requirement;
+import org.apache.maven.tools.plugin.ExtendedMojoDescriptor;
 import org.codehaus.plexus.util.StringUtils;
 import org.jfrog.maven.annomojo.annotations.*;
 
@@ -103,7 +104,7 @@ class MojoApf implements AnnotationProcessorFactory {
 
         private class MojoClassVisitor extends SimpleDeclarationVisitor {
 
-            private MojoDescriptor mojoDescriptor;
+            private ExtendedMojoDescriptor mojoDescriptor;
 
             private Set<Declaration> visitedDeclarations = new HashSet<Declaration>();
 
@@ -129,7 +130,7 @@ class MojoApf implements AnnotationProcessorFactory {
                 }
                 //Create a new descriptor and set the following only for the concrete mojo
                 if (mojoDescriptor == null) {
-                    mojoDescriptor = new MojoDescriptor();
+                    mojoDescriptor = new ExtendedMojoDescriptor();
                     mojoDescriptor.setPluginDescriptor(descriptor);
                     mojoDescriptor.setLanguage("java");
                     mojoDescriptor.setImplementation(d.getQualifiedName());
@@ -279,6 +280,15 @@ class MojoApf implements AnnotationProcessorFactory {
                 if (requiresDependencyResolution != null) {
                     String value = requiresDependencyResolution.value();
                     mojoDescriptor.setDependencyResolutionRequired(value);
+                }
+                // ----------------------------------------------------------------------
+                // Collection flag
+                // ----------------------------------------------------------------------
+                MojoRequiresDependencyCollection requiresDependencyCollection =
+                        d.getAnnotation(MojoRequiresDependencyCollection.class);
+                if (requiresDependencyCollection != null) {
+                    String value = requiresDependencyCollection.value();
+                    mojoDescriptor.setDependencyCollectionRequired(value);
                 }
                 // ----------------------------------------------------------------------
                 // Project flag
