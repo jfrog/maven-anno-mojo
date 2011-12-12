@@ -278,8 +278,7 @@ class MojoApf implements AnnotationProcessorFactory {
                 MojoRequiresDependencyResolution requiresDependencyResolution =
                         d.getAnnotation(MojoRequiresDependencyResolution.class);
                 if (requiresDependencyResolution != null) {
-                    String value = requiresDependencyResolution.value();
-                    mojoDescriptor.setDependencyResolutionRequired(value);
+                    mojoDescriptor.setDependencyResolutionRequired(requiresDependencyResolution.value());
                 }
                 // ----------------------------------------------------------------------
                 // Collection flag
@@ -287,8 +286,7 @@ class MojoApf implements AnnotationProcessorFactory {
                 MojoRequiresDependencyCollection requiresDependencyCollection =
                         d.getAnnotation(MojoRequiresDependencyCollection.class);
                 if (requiresDependencyCollection != null) {
-                    String value = requiresDependencyCollection.value();
-                    mojoDescriptor.setDependencyCollectionRequired(value);
+                    mojoDescriptor.setDependencyCollectionRequired(requiresDependencyCollection.value());
                 }
                 // ----------------------------------------------------------------------
                 // Project flag
@@ -322,10 +320,16 @@ class MojoApf implements AnnotationProcessorFactory {
                 // ----------------------------------------------------------------------
                 // inheritByDefault flag
                 // ----------------------------------------------------------------------
-                MojoInheritedByDefault inheritedByDefault =
-                        d.getAnnotation(MojoInheritedByDefault.class);
+                MojoInheritedByDefault inheritedByDefault = d.getAnnotation(MojoInheritedByDefault.class);
                 if (inheritedByDefault != null) {
                     mojoDescriptor.setInheritedByDefault(inheritedByDefault.value());
+                }
+                // ----------------------------------------------------------------------
+                // Since flag
+                // ----------------------------------------------------------------------
+                MojoSince since = d.getAnnotation(MojoSince.class);
+                if (since != null) {
+                    mojoDescriptor.setSince(since.value());
                 }
             }
 
