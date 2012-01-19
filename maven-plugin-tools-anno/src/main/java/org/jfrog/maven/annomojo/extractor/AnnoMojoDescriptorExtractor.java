@@ -17,6 +17,7 @@
 package org.jfrog.maven.annomojo.extractor;
 
 import com.sun.tools.apt.Main;
+import org.apache.maven.artifact.Artifact;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
 import org.apache.maven.plugin.descriptor.InvalidPluginDescriptorException;
 import org.apache.maven.plugin.descriptor.MojoDescriptor;
@@ -107,6 +108,22 @@ public class AnnoMojoDescriptorExtractor
             }
             appendToPath(cp, path);
         }
+        
+        // Attempts to add dependencies to the classpath so that parameters inherited from abstract mojos in other
+        // projects will be processed.
+        Set s = project.getDependencyArtifacts();
+        if (s != null) {
+            for (Object untypedArtifact : project.getDependencyArtifacts()) {
+                if ( untypedArtifact instanceof Artifact) {
+                    Artifact artifact = (Artifact) untypedArtifact;
+                    File artifactFile = artifact.getFile();
+                    if (artifactFile != null) {
+                        appendToPath(cp, artifactFile.getAbsolutePath());
+                    }
+                }
+            }
+        }
+        
         String classpath = cp.toString();
         debug("cl=" + classpath);
         argsList.add(classpath);
