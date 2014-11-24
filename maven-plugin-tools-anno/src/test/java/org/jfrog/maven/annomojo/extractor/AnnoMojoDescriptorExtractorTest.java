@@ -31,6 +31,19 @@ import java.util.List;
  */
 public class AnnoMojoDescriptorExtractorTest extends TestCase {
 
+	/**
+	 * NOTE: The source files in src/test/resources/source have to be
+	 * copied to the output directory as .java-Files for this test to be 
+	 * sucessfull.
+	 * The Eclipse Project Configuration created with "mvn eclipse:eclipse"
+	 * excludes .java files in the resources dir by default. If this filter 
+	 * is removed the .java-Files are still comiled by eclipse before copying
+	 * it to the target directory.
+	 * 
+	 * To launch this test in eclipse the following Maven command has to be 
+	 * executed after each "Project - clean" in Eclipse:
+	 * "mvn resources:testResources" 
+	 */
     public void testCreateMojoDescriptor() throws Exception {
         AnnoMojoDescriptorExtractor extractor = new AnnoMojoDescriptorExtractor();
 
